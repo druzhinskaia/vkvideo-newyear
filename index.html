@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="До курантов — новогодний прототип для VK Видео. Подберите просмотр по компании и оставшемуся до полуночи времени.">
+<meta name="theme-color" content="#f3eee3">
+<title>До курантов · Новогодний концепт для VK Видео</title>
+<link rel="icon" href="assets/icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="style.css">
+<script src="app.js" defer></script>
+</head>
+<body id="top">
+<a class="skip" href="#picker">Перейти к подбору</a>
+<header class="header wrap">
+  <a href="#top" class="wordmark" aria-label="До курантов, начало страницы">
+    <span class="brand-icon" aria-hidden="true"><svg viewBox="0 0 22 22"><path d="M8 6.5v9l8-4.5z" fill="currentColor"/></svg></span>
+    <span>VK Видео</span><span class="brand-slash">/</span><span class="brand-meta">Концепт</span>
+  </a>
+  <nav class="header-links" aria-label="Разделы сайта">
+    <a href="#picker">Подбор</a><a href="#research">Отзывы</a><a href="#experiment">A/B-тест</a>
+  </nav>
+</header>
+<main>
+  <section class="hero wrap" aria-labelledby="hero-title">
+    <div class="hero-kicker"><span>НОВОГОДНИЙ СПЕЦПРОЕКТ</span><span class="hero-kicker-date">31 ДЕКАБРЯ · 2026</span></div>
+    <h1 id="hero-title">До курантов<span>.</span></h1>
+    <div class="hero-layout">
+      <div class="hero-copy">
+        <p class="hero-subtitle">Что включить<br>в этот вечер?</p>
+        <p>Найдите видео для семьи, друзей или уютного фона. Подборка учтёт, сколько времени у вас есть.</p>
+        <a class="button dark-button" href="#picker">Подобрать видео</a>
+      </div>
+      <figure class="hero-photo">
+        <img src="assets/hero.webp" width="1152" height="768" alt="Свеча и еловые ветви у заснеженного окна" fetchpriority="high">
+        <figcaption class="clock-card">
+          <span>ДО ПОЛУНОЧИ</span><strong id="hero-clock">00:22:00</strong><small>31 декабря · режим демо</small>
+        </figcaption>
+      </figure>
+    </div>
+  </section>
+  <section class="mood-band" aria-label="Быстрый выбор ситуации">
+    <div class="wrap mood-layout">
+      <button class="mood" data-quick="family" type="button"><img src="assets/street.webp" width="295" height="590" alt=""><span><strong>Всей семьёй</strong><small>Мультфильмы и истории</small></span></button>
+      <button class="mood" data-quick="friends" type="button"><img src="assets/cabin.webp" width="295" height="590" alt=""><span><strong>С друзьями</strong><small>Шоу и короткие комедии</small></span></button>
+      <button class="mood" data-quick="ambient" type="button"><img src="assets/window.webp" width="295" height="590" alt=""><span><strong>Фоном</strong><small>Зимние виды и музыка</small></span></button>
+    </div>
+  </section>
+  <section class="picker wrap" id="picker" aria-labelledby="picker-title">
+    <header class="section-head">
+      <div><p class="kicker">ПОДБОР ПО СИТУАЦИИ</p><h2 id="picker-title">Ваш новогодний эфир</h2></div>
+      <p>Выберите, как смотрите и сколько есть времени.</p>
+    </header>
+    <div class="picker-panel">
+      <form class="selection" id="filters">
+        <fieldset>
+          <legend>Как смотрим?</legend>
+          <div class="options">
+            <label><input name="audience" type="radio" value="family" checked><span>Всей семьёй</span></label>
+            <label><input name="audience" type="radio" value="friends"><span>С друзьями</span></label>
+            <label><input name="audience" type="radio" value="ambient"><span>Фоном</span></label>
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend>Сколько есть времени?</legend>
+          <div class="options">
+            <label><input name="length" type="radio" value="midnight" checked><span>До полуночи</span></label>
+            <label><input name="length" type="radio" value="15"><span>До 15 мин</span></label>
+            <label><input name="length" type="radio" value="30"><span>До 30 мин</span></label>
+            <label><input name="length" type="radio" value="evening"><span>Целый вечер</span></label>
+          </div>
+        </fieldset>
+      </form>
+      <div class="simulation">
+        <label for="demo-time"><span>Время на часах</span><output id="demo-time-label" for="demo-time">23:38</output></label>
+        <input id="demo-time" type="range" min="0" max="89" step="1" value="68" aria-describedby="demo-help">
+        <div class="range-times" aria-hidden="true"><span>22:30</span><span>23:59</span></div>
+        <p id="demo-help">Передвиньте ползунок, чтобы проверить подбор перед полуночью.</p>
+      </div>
+    </div>
+    <section class="results" aria-labelledby="result-title">
+      <header class="results-head">
+        <div><h3 id="result-title">Что можно включить</h3><p id="result-context" aria-live="polite"></p></div>
+        <div class="result-actions">
+          <button class="button line-button" type="button" id="favorite-mode" aria-pressed="false">Избранное <span id="favorite-count">0</span></button>
+          <button class="button line-button" type="button" id="more">Показать ещё</button>
+        </div>
+      </header>
+      <div class="result-grid" id="results"></div>
+      <p class="demo-note">Демонстрационный каталог с вымышленными названиями и короткими видеопревью.</p>
+    </section>
+  </section>
+  <section class="research" id="research" aria-labelledby="research-title">
+    <div class="wrap">
+      <header class="section-head">
+        <div><p class="kicker">ПОЛЬЗОВАТЕЛЬСКИЕ ОТЗЫВЫ</p><h2 id="research-title">Почему эта идея появилась</h2></div>
+        <p>Публичные отзывы показали, где зрителям трудно найти подходящий ролик. Из них выросла гипотеза о выборе по ситуации.</p>
+      </header>
+      <div class="research-grid">
+        <article>
+          <p class="source-date">RUSTORE · 21–22 НОЯБРЯ 2026</p>
+          <h3>Рекомендации повторяются</h3>
+          <p>Александр пишет, что видит шоу, которые не смотрит. Михаил замечает, что каналы снова появляются после «Не рекомендовать».</p>
+          <a href="https://www.rustore.ru/catalog/app/com.vk.vkvideo/reviews" target="_blank" rel="noopener noreferrer">Отзывы в RuStore</a>
+        </article>
+        <article>
+          <p class="source-date">ONLINE47 · 21 МАЯ 2026</p>
+          <h3>В ленте похожие форматы</h3>
+          <p>Зрительницы описывают опыт, в котором одни и те же типы шоу и знакомые лица появляются снова, даже если интересы у них другие.</p>
+          <a href="https://online47.ru/2026/05/21/bylo-neudobno-stalo-privychno-kak-vk-video-i-rutube-peretyanuli-milliony-rossiyan-s-youtube-236308" target="_blank" rel="noopener noreferrer">Интервью со зрительницами</a>
+        </article>
+        <article>
+          <p class="source-date">VRAKI.NET · 2 МАРТА 2026</p>
+          <h3>Выдача расходится с запросом</h3>
+          <p>Автор отзыва пишет, что при поиске получает совсем другие видео. Для ситуаций, когда человек ещё не знает название, предлагаем начать с контекста.</p>
+          <a href="https://vraki.net/otzyvy/mobilnye-prilozheniya/vk-video-kino-multiki-i-shou/dobryy-den-prilozhenie-kak-bylo-ne-prigodnym-takim-i-ostal.html" target="_blank" rel="noopener noreferrer">Отзыв о поиске</a>
+        </article>
+      </div>
+      <details class="research-extra">
+        <summary>Другие жалобы и существующие возможности VK Видео</summary>
+        <p>В RuStore пользователи также описывают неудобный доступ к поиску из глубины ленты и зависание при загрузке рекламы на слабом интернете. Это отдельные сценарии со своими метриками. <a href="https://www.rustore.ru/catalog/app/com.vk.vkvideo/reviews" target="_blank" rel="noopener noreferrer">Читать отзывы</a></p>
+        <p>VK Видео уже выпускало праздничные подборки, а в каталоге доступны жанры и темы. В предлагаемом сценарии пользователь задаёт компанию и время, а список обновляется по этим параметрам. <a href="https://vk.promo.page/media/chto-smotret-pered-novym-godom-esli-vezde-odno-i-to-je-6757f7241ae4ca1fbb5ce32e_3_4?traffic_origin=brand_page" target="_blank" rel="noopener noreferrer">Новогодняя подборка VK Видео</a> · <a href="https://www.cnews.ru/news/line/2026-10-08_v_vk_video_obnovili_razdel" target="_blank" rel="noopener noreferrer">Обновление каталога</a></p>
+      </details>
+    </div>
+  </section>
+  <section class="experiment wrap" id="experiment" aria-labelledby="experiment-title">
+    <header class="section-head">
+      <div><p class="kicker">ПРОДУКТОВАЯ ГИПОТЕЗА</p><h2 id="experiment-title">Как проверим эффект</h2></div>
+      <p>Если при выборе учитывать компанию и свободное время, зрители чаще начнут смотреть подходящее видео в первую минуту.</p>
+    </header>
+    <div class="experiment-grid">
+      <article class="metric">
+        <p class="kicker">ОСНОВНАЯ МЕТРИКА</p>
+        <strong>60 секунд</strong>
+        <p>Доля открытий праздничного раздела, после которых зритель запустил видео в течение 60 секунд и посмотрел не менее 30 секунд.</p>
+      </article>
+      <div class="comparison">
+        <div><span>A</span><div><h3>Обычная подборка</h3><p>Новогодний баннер открывает список роликов.</p></div></div>
+        <div><span>B</span><div><h3>Интерактивный подбор</h3><p>Тот же баннер открывает выбор компании и времени. Ролики берём из того же каталога.</p></div></div>
+        <p class="comparison-foot">Распределяем случайно по пользователям. Дополнительно сравниваем ранние выходы и время до первого запуска.</p>
+      </div>
+    </div>
+    <details class="research-extra">
+      <summary>Детали для разработки и аналитики</summary>
+      <p>Для режима «До полуночи» время рассчитывается в часовом поясе зрителя. Фильтр учитывает хронометраж; для семейного сценария проверяется возрастная маркировка. Если подходящих роликов нет, интерфейс предлагает изменить лимит времени.</p>
+      <p>События <code>holiday_opened</code> и <code>video_started</code> фиксируем одинаково в обеих группах. Успешный просмотр определяем по фактическим секундам контента без рекламы. События <code>filter_changed</code> и <code>next_results</code> помогают понять, как люди пользуются подбором.</p>
+    </details>
+  </section>
+</main>
+<footer class="footer"><div class="wrap"><p>До курантов <span>·</span> Концепт для VK Видео</p><a href="#top">К началу</a></div></footer>
+<dialog id="preview" class="preview" aria-labelledby="preview-title">
+  <div class="preview-head"><div><p class="kicker">ДЕМО-ПРЕВЬЮ</p><h2 id="preview-title"></h2></div><button type="button" class="preview-close" id="preview-close" aria-label="Закрыть превью"><span aria-hidden="true">×</span></button></div>
+  <video id="preview-video" controls playsinline preload="none" muted aria-label="Демонстрационный видеоролик"></video>
+  <p id="preview-description"></p>
+</dialog>
+<template id="video-card">
+  <article class="video-card">
+    <div class="video-media">
+      <button type="button" class="video-open"><img alt="" width="440" height="310"><span class="video-play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m9 5 11 7-11 7z" fill="currentColor"/></svg></span><span class="duration"></span></button>
+      <button type="button" class="favorite" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.6 8.6c0 4.5-8.6 9.3-8.6 9.3S3.4 13.1 3.4 8.6a4.2 4.2 0 0 1 8.6-1.3 4.2 4.2 0 0 1 8.6 1.3Z"/></svg></button>
+    </div>
+    <div class="video-text"><p class="video-genre"></p><h4 class="video-title"></h4><p class="video-reason"></p></div>
+  </article>
+</template>
+</body>
+</html>
