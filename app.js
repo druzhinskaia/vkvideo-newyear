@@ -279,7 +279,12 @@ preview.addEventListener('close', () => {
   previewFrame.removeAttribute('src');
 });
 function revealCaseNote() {
-  const section = byId(location.hash.slice(1));
+  const sectionId = location.hash.slice(1);
+  if (homeMode && (sectionId === 'research' || sectionId === 'experiment')) {
+    location.replace('case.html#' + sectionId);
+    return;
+  }
+  const section = byId(sectionId);
   if (section?.matches('.case-notes details')) section.open = true;
 }
 
