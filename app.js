@@ -39,6 +39,7 @@ const previewVideo = byId('preview-video');
 const favorites = loadFavorites();
 let showingFavorites = false;
 let offset = 0;
+let featuredItem;
 
 function loadFavorites() {
   try {
@@ -69,8 +70,31 @@ function minutesLeft() {
 function adjustClock() {
   const clockTime = timeLabel(firstMinute + Number(clockInput.value));
   byId('demo-time-label').textContent = clockTime;
-  byId('hero-clock').textContent = '00:' + String(minutesLeft()).padStart(2, '0') + ':00';
+  byId('hero-clock').textContent = timeLabel(minutesLeft()) + ':00';
   clockInput.setAttribute('aria-valuetext', clockTime);
+  updateShowcase();
+}
+
+function updateShowcase() {
+  const audience = chosen('audience');
+  const remaining = minutesLeft();
+  featuredItem = catalogue.find(item => item.audience === audience && item.minutes <= remaining);
+  const featured = byId('hero-preview');
+  featured.hidden = !featuredItem;
+  if (featuredItem) {
+    byId('hero-result-title').textContent = featuredItem.title;
+    byId('hero-result-label').textContent = 'Подойдёт по времени · ' + featuredItem.minutes + ' мин';
+    byId('hero-poster').src = './assets/' + featuredItem.image + '.webp';
+    featured.setAttribute('aria-label', 'Смотреть превью: ' + featuredItem.title);
+  }
+  byId('hero-status').textContent = 'До полуночи ' + remaining + ' мин. ' +
+    (featuredItem ? featuredItem.title : 'Нет подходящего ролика.');
+  document.querySelectorAll('[data-hero-audience]').forEach(button => {
+    button.setAttribute('aria-pressed', String(button.dataset.heroAudience === audience));
+  });
+  document.querySelectorAll('[data-demo-time]').forEach(button => {
+    button.setAttribute('aria-pressed', String(button.dataset.demoTime === clockInput.value));
+  });
 }
 
 function calculateResults() {
@@ -199,13 +223,21 @@ favoriteMode.addEventListener('click', () => {
   showingFavorites = !showingFavorites;
   render();
 });
-document.querySelectorAll('[data-quick]').forEach(button => {
+document.querySelectorAll('[data-hero-audience]').forEach(button => {
   button.addEventListener('click', () => {
-    setChoice('audience', button.dataset.quick);
+    setChoice('audience', button.dataset.heroAudience);
     resetResults();
-    document.querySelector('#picker').scrollIntoView({ block:'start' });
-    filters.querySelector('input[name="audience"]:checked').focus({ preventScroll:true });
   });
+});
+document.querySelectorAll('[data-demo-time]').forEach(button => {
+  button.addEventListener('click', () => {
+    setChoice('length', 'midnight');
+    clockInput.value = button.dataset.demoTime;
+    resetResults();
+  });
+});
+byId('hero-preview').addEventListener('click', () => {
+  if (featuredItem) showPreview(featuredItem);
 });
 byId('preview-close').addEventListener('click', () => preview.close());
 preview.addEventListener('close', () => {

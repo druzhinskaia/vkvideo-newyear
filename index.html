@@ -4,11 +4,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="До курантов — новогодний прототип для VK Видео. Подберите просмотр по компании и оставшемуся до полуночи времени.">
-<meta name="theme-color" content="#f3eee3">
+<meta name="theme-color" content="#0c1024">
 <title>До курантов · Новогодний концепт для VK Видео</title>
 <link rel="icon" href="assets/icon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="style.css">
-<script src="app.js" defer></script>
+<link rel="stylesheet" href="style.css?v=2">
+<script src="app.js?v=2" defer></script>
 </head>
 <body id="top">
 <a class="skip" href="#picker">Перейти к подбору</a>
@@ -18,38 +18,48 @@
     <span>VK Видео</span><span class="brand-slash">/</span><span class="brand-meta">Концепт</span>
   </a>
   <nav class="header-links" aria-label="Разделы сайта">
-    <a href="#picker">Подбор</a><a href="#research">Отзывы</a><a href="#experiment">A/B-тест</a>
+    <a href="#picker">Прототип</a><a href="#research">Исследование</a><a href="#experiment">A/B-тест</a>
   </nav>
 </header>
 <main>
-  <section class="hero wrap" aria-labelledby="hero-title">
-    <div class="hero-kicker"><span>НОВОГОДНИЙ СПЕЦПРОЕКТ</span><span class="hero-kicker-date">31 ДЕКАБРЯ · 2026</span></div>
-    <h1 id="hero-title">До курантов<span>.</span></h1>
-    <div class="hero-layout">
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="wrap hero-layout">
       <div class="hero-copy">
-        <p class="hero-subtitle">Что включить<br>в этот вечер?</p>
-        <p>Найдите видео для семьи, друзей или уютного фона. Подборка учтёт, сколько времени у вас есть.</p>
-        <a class="button dark-button" href="#picker">Подобрать видео</a>
+        <p class="hero-kicker">НОВОГОДНИЙ КОНЦЕПТ ДЛЯ VK ВИДЕО</p>
+        <h1 id="hero-title">До курантов<span>.</span></h1>
+        <p class="hero-subtitle">Что включить, когда до полуночи осталось 22 минуты?</p>
+        <p class="hero-description">Зритель выбирает, с кем смотрит и сколько у него времени. VK Видео подбирает ролики, которые помещаются в этот вечер.</p>
+        <div class="hero-actions"><a class="button dark-button" href="#picker"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 5 12 7-12 7z" fill="currentColor"/></svg>Попробовать прототип</a><a class="button line-button" href="#research">Почему эта идея</a></div>
       </div>
-      <figure class="hero-photo">
-        <img src="assets/hero.webp" width="1152" height="768" alt="Свеча и еловые ветви у заснеженного окна" fetchpriority="high">
-        <figcaption class="clock-card">
-          <span>ДО ПОЛУНОЧИ</span><strong id="hero-clock">00:22:00</strong><small>31 декабря · режим демо</small>
-        </figcaption>
-      </figure>
+      <div class="showcase">
+        <div class="showcase-top"><span class="showcase-brand"><span class="brand-icon" aria-hidden="true"><svg viewBox="0 0 22 22"><path d="M8 6.5v9l8-4.5z" fill="currentColor"/></svg></span>VK Видео</span><span>31 декабря · демо</span></div>
+        <div class="clock-card"><span>ДО ПОЛУНОЧИ</span><strong id="hero-clock">00:22:00</strong>
+          <div class="hero-presets" aria-label="Время для демонстрации">
+            <button type="button" data-demo-time="68" aria-pressed="true">23:38</button><button type="button" data-demo-time="89" aria-pressed="false">23:59</button>
+          </div>
+        </div>
+        <div class="showcase-content">
+          <p>Что включаем?</p>
+          <div class="showcase-moods" aria-label="Компания для просмотра">
+            <button type="button" data-hero-audience="family" aria-pressed="true">Всей семьёй</button><button type="button" data-hero-audience="friends" aria-pressed="false">С друзьями</button><button type="button" data-hero-audience="ambient" aria-pressed="false">Фоном</button>
+          </div>
+          <button type="button" class="showcase-result" id="hero-preview" aria-label="Смотреть превью: Трамвай на Северную">
+            <img id="hero-poster" src="assets/street.webp" alt=""><span><small id="hero-result-label">Подойдёт по времени · 18 мин</small><strong id="hero-result-title">Трамвай на Северную</strong></span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 5 12 7-12 7z" fill="currentColor"/></svg>
+          </button>
+          <p class="sr-only" id="hero-status" role="status"></p>
+        </div>
+      </div>
     </div>
   </section>
-  <section class="mood-band" aria-label="Быстрый выбор ситуации">
-    <div class="wrap mood-layout">
-      <button class="mood" data-quick="family" type="button"><img src="assets/street.webp" width="295" height="590" alt=""><span><strong>Всей семьёй</strong><small>Мультфильмы и истории</small></span></button>
-      <button class="mood" data-quick="friends" type="button"><img src="assets/cabin.webp" width="295" height="590" alt=""><span><strong>С друзьями</strong><small>Шоу и короткие комедии</small></span></button>
-      <button class="mood" data-quick="ambient" type="button"><img src="assets/window.webp" width="295" height="590" alt=""><span><strong>Фоном</strong><small>Зимние виды и музыка</small></span></button>
-    </div>
-  </section>
+  <div class="case-path wrap" aria-label="Структура кейса">
+    <a href="#research"><strong>С чего началась идея</strong><span>Почему обычной ленты бывает мало</span></a>
+    <a href="#picker"><strong>Как работает сценарий</strong><span>Выбор компании и времени</span></a>
+    <a href="#experiment"><strong>Как поймём, что сработало</strong><span>Метрика, контроль и эксперимент</span></a>
+  </div>
   <section class="picker wrap" id="picker" aria-labelledby="picker-title">
     <header class="section-head">
-      <div><p class="kicker">ПОДБОР ПО СИТУАЦИИ</p><h2 id="picker-title">Ваш новогодний эфир</h2></div>
-      <p>Выберите, как смотрите и сколько есть времени.</p>
+      <div><p class="kicker">ИНТЕРАКТИВНЫЙ ПРОТОТИП</p><h2 id="picker-title">Подберите просмотр</h2></div>
+      <p>Измените компанию или время на часах. Посмотрите, как меняется список и какой ролик можно включить сразу.</p>
     </header>
     <div class="picker-panel">
       <form class="selection" id="filters">
@@ -75,7 +85,7 @@
         <label for="demo-time"><span>Время на часах</span><output id="demo-time-label" for="demo-time">23:38</output></label>
         <input id="demo-time" type="range" min="0" max="89" step="1" value="68" aria-describedby="demo-help">
         <div class="range-times" aria-hidden="true"><span>22:30</span><span>23:59</span></div>
-        <p id="demo-help">Передвиньте ползунок, чтобы проверить подбор перед полуночью.</p>
+        <p id="demo-help">В режиме «До полуночи» подборка пересчитывается при изменении времени.</p>
       </div>
     </div>
     <section class="results" aria-labelledby="result-title">
@@ -94,7 +104,7 @@
     <div class="wrap">
       <header class="section-head">
         <div><p class="kicker">ПОЛЬЗОВАТЕЛЬСКИЕ ОТЗЫВЫ</p><h2 id="research-title">Почему эта идея появилась</h2></div>
-        <p>Публичные отзывы показали, где зрителям трудно найти подходящий ролик. Из них выросла гипотеза о выборе по ситуации.</p>
+        <p>Зрители описывают однотипную ленту и нерелевантную выдачу. Для первого эксперимента я выбрала момент, когда человек уже знает, как хочет смотреть, но ещё не выбрал ролик.</p>
       </header>
       <div class="research-grid">
         <article>
@@ -116,6 +126,10 @@
           <a href="https://vraki.net/otzyvy/mobilnye-prilozheniya/vk-video-kino-multiki-i-shou/dobryy-den-prilozhenie-kak-bylo-ne-prigodnym-takim-i-ostal.html" target="_blank" rel="noopener noreferrer">Отзыв о поиске</a>
         </article>
       </div>
+      <aside class="insight">
+        <div><p class="kicker">ПРОДУКТОВОЕ РЕШЕНИЕ</p><h3>Дать зрителю задать контекст</h3></div>
+        <p>Начать с новогоднего вечера: у зрителя есть компания и понятное время до полуночи. Это удобный сценарий, чтобы проверить, помогает ли такой выбор быстрее начать просмотр. Отзывы объясняют, почему стоит проверить проблему. Спрос на конкретный сценарий покажет тест.</p>
+      </aside>
       <details class="research-extra">
         <summary>Другие жалобы и существующие возможности VK Видео</summary>
         <p>В RuStore пользователи также описывают неудобный доступ к поиску из глубины ленты и зависание при загрузке рекламы на слабом интернете. Это отдельные сценарии со своими метриками. <a href="https://www.rustore.ru/catalog/app/com.vk.vkvideo/reviews" target="_blank" rel="noopener noreferrer">Читать отзывы</a></p>
@@ -137,9 +151,10 @@
       <div class="comparison">
         <div><span>A</span><div><h3>Обычная подборка</h3><p>Новогодний баннер открывает список роликов.</p></div></div>
         <div><span>B</span><div><h3>Интерактивный подбор</h3><p>Тот же баннер открывает выбор компании и времени. Ролики берём из того же каталога.</p></div></div>
-        <p class="comparison-foot">Распределяем случайно по пользователям. Дополнительно сравниваем ранние выходы и время до первого запуска.</p>
+        <p class="comparison-foot">Случайно распределяем по пользователям при входе в раздел. Сравниваем долю успешных просмотров, время до запуска и долю выходов без просмотра.</p>
       </div>
     </div>
+    <div class="decision"><strong>Что сделаю по итогам теста</strong><p>Оставлю сценарий, если доля успешных просмотров вырастет, а доля выходов без просмотра не увеличится. Если всё останется на уровне контроля, проверю, на каком шаге зрители теряют время: выбор параметров, результаты или запуск.</p></div>
     <details class="research-extra">
       <summary>Детали для разработки и аналитики</summary>
       <p>Для режима «До полуночи» время рассчитывается в часовом поясе зрителя. Фильтр учитывает хронометраж; для семейного сценария проверяется возрастная маркировка. Если подходящих роликов нет, интерфейс предлагает изменить лимит времени.</p>
