@@ -7,8 +7,8 @@
 <meta name="theme-color" content="#0c1024">
 <title>До курантов · Новогодний концепт для VK Видео</title>
 <link rel="icon" href="assets/icon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="style.css?v=4">
-<script src="app.js?v=4" defer></script>
+<link rel="stylesheet" href="style.css?v=5">
+<script src="app.js?v=5" defer></script>
 </head>
 <body id="top">
 <a class="skip" href="#picker">Перейти к подбору</a>
@@ -18,7 +18,7 @@
     <span>VK Видео</span><span class="brand-slash">/</span><span class="brand-meta">Концепт</span>
   </a>
   <nav class="header-links" aria-label="Разделы сайта">
-    <a href="#picker">Прототип</a><a href="#research">Исследование</a><a href="#experiment">A/B-тест</a>
+    <a href="vk-home.html">В ленте VK Видео</a><a href="#research">Исследование</a><a href="#experiment">A/B-тест</a>
   </nav>
 </header>
 <main>
@@ -30,9 +30,9 @@
           <h1 id="hero-title">До курантов<span>.</span></h1>
         </div>
         <div class="clock-card">
-          <span>ДО ПОЛУНОЧИ</span><strong id="hero-clock">00:22:00</strong>
+          <span>ДО ПОЛУНОЧИ</span><strong id="hero-clock">00:25:00</strong>
           <div class="hero-presets" aria-label="Время для демонстрации">
-            <button type="button" data-demo-time="68" aria-pressed="true">23:38</button><button type="button" data-demo-time="89" aria-pressed="false">23:59</button>
+            <button type="button" data-demo-time="65" aria-pressed="true">23:35</button><button type="button" data-demo-time="80" aria-pressed="false">23:50</button>
           </div>
         </div>
       </div>
@@ -67,8 +67,8 @@
         </fieldset>
       </form>
       <div class="simulation">
-        <label for="demo-time"><span>Время на часах</span><output id="demo-time-label" for="demo-time">23:38</output></label>
-        <input id="demo-time" type="range" min="0" max="89" step="1" value="68" aria-describedby="demo-help">
+        <label for="demo-time"><span>Время на часах</span><output id="demo-time-label" for="demo-time">23:35</output></label>
+        <input id="demo-time" type="range" min="0" max="89" step="1" value="65" aria-describedby="demo-help">
         <div class="range-times" aria-hidden="true"><span>22:30</span><span>23:59</span></div>
         <p id="demo-help">Часы для режима «До курантов».</p>
       </div>
@@ -82,7 +82,7 @@
         </div>
       </header>
       <div class="result-grid" id="results"></div>
-      <p class="demo-note">Демокаталог с короткими превью.</p>
+      <p class="demo-note">Ролики из VK Видео.</p>
     </section>
   </section>
   <section class="case-notes" aria-labelledby="case-notes-title">
@@ -108,9 +108,9 @@
 </main>
 <footer class="footer"><div class="wrap"><p>До курантов <span>·</span> Концепт для VK Видео</p><a href="#top">К началу</a></div></footer>
 <dialog id="preview" class="preview" aria-labelledby="preview-title">
-  <div class="preview-head"><div><p class="kicker">ДЕМО-ПРЕВЬЮ</p><h2 id="preview-title"></h2></div><button type="button" class="preview-close" id="preview-close" aria-label="Закрыть превью"><span aria-hidden="true">×</span></button></div>
-  <video id="preview-video" controls playsinline preload="none" muted aria-label="Демонстрационный видеоролик"></video>
-  <p id="preview-description"></p>
+  <div class="preview-head"><div><p class="kicker">VK ВИДЕО</p><h2 id="preview-title"></h2></div><button type="button" class="preview-close" id="preview-close" aria-label="Закрыть плеер"><span aria-hidden="true">×</span></button></div>
+  <iframe id="preview-frame" title="Плеер VK Видео" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+  <div class="preview-meta"><p id="preview-description"></p><a id="video-original" class="button line-button" target="_blank" rel="noopener noreferrer">Открыть в VK Видео</a></div>
 </dialog>
 <template id="scenario-card">
   <article class="scenario-card">

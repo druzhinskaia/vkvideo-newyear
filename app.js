@@ -1,35 +1,14 @@
 const catalogue = [
-  { id:'snow-tram', audience:'family', title:'Трамвай на Северную', genre:'Семейная анимация · 6+', minutes:18, image:'family-tram', description:'Маленькое путешествие по городу, где перед Новым годом трамваи меняют маршрут.' },
-  { id:'paper-stars', audience:'family', title:'Бумажные звёзды', genre:'Короткометражка · 0+', minutes:14, image:'window', description:'Бабушка и внучка собирают украшения к празднику из старых бумажных открыток.' },
-  { id:'forest-letter', audience:'family', title:'Письмо из зимнего леса', genre:'Сказка · 6+', minutes:9, image:'cabin', description:'В канун праздника смотритель леса получает самое необычное письмо.' },
-  { id:'winter-post', audience:'family', title:'Снежная почта', genre:'Анимация · 0+', minutes:7, image:'street', description:'История о письме, которое успевает к полуночи благодаря маленьким помощникам.' },
-  { id:'cocoa', audience:'family', title:'Какао на троих', genre:'Семейная история · 0+', minutes:4, image:'window', description:'Тёплая миниатюра об одном зимнем вечере дома.' },
-  { id:'old-town', audience:'family', title:'Праздник в старом городе', genre:'Семейная комедия · 6+', minutes:27, image:'street', description:'Соседи устраивают праздник, когда главная городская ёлка исчезает.' },
-  { id:'extra-minute', audience:'family', title:'Один огонёк', genre:'Анимация · 0+', minutes:1, image:'cabin', description:'Минутная зарисовка о том, как зимний пейзаж оживает от света в окне.' },
-  { id:'station', audience:'family', title:'Билет на зимнюю станцию', genre:'Семейное кино · 6+', minutes:78, image:'street', description:'Большая зимняя история о неожиданной поездке и новых друзьях.' },
-  { id:'tangerine-case', audience:'friends', title:'Мандариновый детектив', genre:'Комедия · 12+', minutes:16, image:'tangerine', description:'Компания берётся расследовать исчезновение мандаринов с праздничного стола.' },
-  { id:'holiday-trivia', audience:'friends', title:'Зимний блиц', genre:'Новогоднее шоу · 12+', minutes:17, image:'cabin', description:'Две команды отвечают на вопросы о зимних фильмах и праздничных привычках.' },
-  { id:'delivery', audience:'friends', title:'Заказ на полночь', genre:'Короткая комедия · 12+', minutes:12, image:'street', description:'Перед самым праздником курьер пытается доставить коробку загадочному адресату.' },
-  { id:'bad-toasts', audience:'friends', title:'Мандариновый стендап', genre:'Импровизация · 12+', minutes:8, image:'window', description:'Комики придумывают новогодние шутки по подсказкам зрителей.' },
-  { id:'guess', audience:'friends', title:'Угадай зимний фильм', genre:'Викторина · 6+', minutes:5, image:'cabin', description:'Пять быстрых раундов по зимним киноисториям.' },
-  { id:'night', audience:'friends', title:'Всё как в кино', genre:'Вечернее шоу · 12+', minutes:24, image:'street', description:'Гости студии обсуждают неожиданные традиции из новогоднего кино.' },
-  { id:'montage', audience:'friends', title:'Кто съел все мандарины?', genre:'Мини-комедия · 12+', minutes:1, image:'tangerine', description:'Короткое расследование главного исчезновения вечера.' },
-  { id:'comedy-trip', audience:'friends', title:'Компания в сборе', genre:'Комедия · 12+', minutes:63, image:'cabin', description:'Друзья договариваются о встрече, и всё идёт не по расписанию.' },
-  { id:'slow-olivier', audience:'ambient', title:'Оливье без спешки', genre:'Кулинарная зарисовка · 0+', minutes:19, image:'olivier', description:'Зимняя кухня, мерный стук ножа и праздничный салат.' },
-  { id:'snow-window', audience:'ambient', title:'Окно в декабрь', genre:'Зимние виды · 0+', minutes:20, image:'cabin', description:'Тихие зимние виды с мягким светом из окон лесного дома.' },
-  { id:'amber-light', audience:'ambient', title:'Свет на кухне', genre:'Вечерние зарисовки · 0+', minutes:13, image:'window', description:'Рассеянный свет, горячий чай и спокойный ритм зимнего вечера.' },
-  { id:'midnight-street', audience:'ambient', title:'Улицы под снегом', genre:'Прогулка · 0+', minutes:10, image:'street', description:'Ночная прогулка по небольшому городу без диалогов.' },
-  { id:'fire-glow', audience:'ambient', title:'Тёплая пауза', genre:'Фоновое видео · 0+', minutes:6, image:'window', description:'Спокойная зарисовка со свечой и мягким зимним светом.' },
-  { id:'pinewood', audience:'ambient', title:'Тишина в ельнике', genre:'Природа · 0+', minutes:29, image:'cabin', description:'Снег и редкие огни вдалеке. Можно включить фоном за столом.' },
-  { id:'falling-snow', audience:'ambient', title:'Первая снежинка', genre:'Миниатюра · 0+', minutes:1, image:'street', description:'Короткая зимняя зарисовка на последнюю минуту перед полуночью.' },
-  { id:'winter-room', audience:'ambient', title:'Длинный зимний вечер', genre:'Фоновое видео · 0+', minutes:90, image:'window', description:'Долгий спокойный фон для разговоров или приготовления ужина.' },
-  { id:'guests-on-the-way', audience:'guests', title:'Они уже выехали', genre:'Короткая комедия · 6+', minutes:12, image:'guests', description:'Два друга несут подарки через заснеженный город и спорят, кто обещал прийти первым.' },
-  { id:'before-doorbell', audience:'guests', title:'Пять минут до звонка', genre:'Праздничная миниатюра · 0+', minutes:5, image:'window', description:'Хозяева заканчивают последние приготовления, пока в коридоре уже слышны шаги.' },
-  { id:'guests-by-the-door', audience:'guests', title:'Гости на пороге', genre:'Праздничная миниатюра · 0+', minutes:1, image:'guests', description:'Одна минута, два подарка и звонок в дверь.' },
+  { id:'olivier-19', audience:'ambient', title:'Оливье XIX века. Самый первый рецепт', author:'Шеф-повар Василий Емельяненко', genre:'Рецепт', seconds:1337, image:'olivier', owner:'-129435925', video:'456240690' },
+  { id:'mandarins-forward', audience:'friends', title:'Новый год не с родителями', author:'Уральские Пельмени', genre:'Юмор', seconds:454, image:'tangerine', owner:'-19232159', video:'456250223', hash:'224145a615a339a711' },
+  { id:'santa-summer', audience:'family', title:'Дед Мороз и лето', author:'Союзмультфильм', genre:'Мультфильм', seconds:1166, image:'family-tram', owner:'23893368', video:'456239832', hash:'8ca5a611a1cbff84' },
+  { id:'new-year-fireworks', audience:'guests', title:'Новогодний салют', author:'Уральские Пельмени', genre:'Юмор', seconds:323, image:'guests', owner:'178203904', video:'456242170', hash:'d5bae5d4cb060e57' },
+  { id:'winter-fairytale', audience:'family', title:'Новогодняя сказка', author:'Союзмультфильм', genre:'Мультфильм', seconds:985, image:'cabin', owner:'-65205704', video:'456239376', hash:'ad5348ddab94fc27' },
 ];
 
 const labels = { ambient:'Под оливье', friends:'Сегодня не пью', family:'Бабушка одобрит', guests:'Пока гости едут' };
-const cardCount = 3;
+const homeMode = document.body.classList.contains('video-home');
+const cardCount = homeMode ? 6 : 3;
 const firstMinute = 22 * 60 + 30;
 const minuteAtMidnight = 24 * 60;
 const storageKey = 'vkvideo-newyear-favorites-v1';
@@ -40,7 +19,8 @@ const board = byId('results');
 const more = byId('more');
 const favoriteMode = byId('favorite-mode');
 const preview = byId('preview');
-const previewVideo = byId('preview-video');
+const previewFrame = byId('preview-frame');
+const searchInput = byId('home-search-input');
 const favorites = loadFavorites();
 let showingFavorites = false;
 let offset = 0;
@@ -68,6 +48,10 @@ function timeLabel(minute) {
   return pad(Math.floor(minute / 60)) + ':' + pad(minute % 60);
 }
 
+function durationLabel(seconds) {
+  return Math.floor(seconds / 60) + ':' + String(seconds % 60).padStart(2, '0');
+}
+
 function minutesLeft() {
   return minuteAtMidnight - firstMinute - Number(clockInput.value);
 }
@@ -87,10 +71,12 @@ function createScenarioCard(audience, label) {
   const title = card.querySelector('.scenario-video-title');
   const duration = card.querySelector('.duration');
   const cover = card.querySelector('img');
+  const representative = catalogue.find(item => item.audience === audience);
   let featured;
 
   select.querySelector('span').textContent = label;
   select.addEventListener('click', () => {
+    if (searchInput) searchInput.value = '';
     setChoice('audience', audience);
     setChoice('length', 'midnight');
     resetResults();
@@ -104,16 +90,16 @@ function createScenarioCard(audience, label) {
   return {
     update(selected, remaining) {
       select.setAttribute('aria-pressed', String(audience === selected));
-      featured = catalogue.find(item => item.audience === audience && item.minutes <= remaining);
+      featured = catalogue.find(item => item.audience === audience && item.seconds <= remaining * 60);
       video.disabled = !featured;
       title.textContent = featured?.title ?? 'Нет подходящего видео';
-      duration.textContent = featured ? featured.minutes + ' мин' : '';
+      duration.textContent = featured ? durationLabel(featured.seconds) : '';
       if (featured) {
-        video.setAttribute('aria-label', 'Смотреть превью: ' + featured.title);
+        video.setAttribute('aria-label', 'Смотреть: ' + featured.title);
         cover.src = './assets/' + featured.image + '.webp';
       } else {
         video.removeAttribute('aria-label');
-        cover.removeAttribute('src');
+        cover.src = './assets/' + representative.image + '.webp';
       }
     },
   };
@@ -128,24 +114,32 @@ function updateShowcase() {
   });
 }
 
+function searchQuery() {
+  return searchInput?.value.trim().toLocaleLowerCase('ru') ?? '';
+}
+
 function calculateResults() {
   if (showingFavorites) return catalogue.filter(item => favorites.has(item.id));
+  const query = searchQuery();
+  if (query) {
+    return catalogue.filter(item => [item.title, item.author, item.genre]
+      .some(value => value.toLocaleLowerCase('ru').includes(query)));
+  }
   const length = chosen('length');
-  const limit = length === 'midnight' ? minutesLeft() : length === 'evening' ? Infinity : Number(length);
-  const items = catalogue.filter(item => item.audience === chosen('audience') && item.minutes <= limit);
-  if (length === 'evening') return items.sort((first, second) => second.minutes - first.minutes);
-  return items;
+  const audience = chosen('audience');
+  const limit = length === 'midnight' ? minutesLeft() * 60 : length === 'evening' ? Infinity : Number(length) * 60;
+  return catalogue.filter(item => (audience === 'all' || item.audience === audience) && item.seconds <= limit);
 }
 
 function showPreview(item) {
   byId('preview-title').textContent = item.title;
-  byId('preview-description').textContent = item.description + ' В прототипе доступен короткий демонстрационный фрагмент.';
-  previewVideo.poster = './assets/' + item.image + '.webp';
-  previewVideo.src = './assets/' + item.image + '.mp4';
+  byId('preview-description').textContent = item.author + ' · ' + durationLabel(item.seconds);
+  byId('video-original').href = 'https://vkvideo.ru/video' + item.owner + '_' + item.video;
+  const params = new URLSearchParams({ oid:item.owner, id:item.video, hd:'2', autoplay:'1' });
+  if (item.hash) params.set('hash', item.hash);
+  previewFrame.title = 'VK Видео — ' + item.title;
   preview.showModal();
-  previewVideo.play().catch(() => {
-    // If autoplay is unavailable, the native controls still allow playback.
-  });
+  previewFrame.src = 'https://vkvideo.ru/video_ext.php?' + params;
 }
 
 function updateFavoriteButton(button, item) {
@@ -176,11 +170,11 @@ function renderCard(item) {
   const cover = card.querySelector('img');
   cover.src = './assets/' + item.image + '.webp';
   cover.loading = 'lazy';
-  card.querySelector('.duration').textContent = item.minutes + ' мин';
-  card.querySelector('.video-genre').textContent = item.genre;
+  card.querySelector('.duration').textContent = durationLabel(item.seconds);
+  card.querySelector('.video-genre').textContent = item.author + ' · ' + item.genre;
   card.querySelector('.video-title').textContent = item.title;
   const open = card.querySelector('.video-open');
-  open.setAttribute('aria-label', 'Смотреть превью: ' + item.title);
+  open.setAttribute('aria-label', 'Смотреть: ' + item.title);
   open.addEventListener('click', () => showPreview(item));
   const favorite = card.querySelector('.favorite');
   updateFavoriteButton(favorite, item);
@@ -192,15 +186,17 @@ function renderEmpty() {
   const empty = document.createElement('div');
   empty.className = 'empty';
   const message = document.createElement('p');
+  const query = searchQuery();
   message.textContent = showingFavorites
     ? 'Сохраните ролик сердечком, и он появится здесь.'
-    : 'Под эти параметры нет роликов. Попробуйте увеличить лимит времени.';
+    : query ? 'По этому запросу ничего не найдено.' : 'На это время нет подходящих роликов.';
   const action = document.createElement('button');
   action.className = 'button line-button';
   action.type = 'button';
-  action.textContent = showingFavorites ? 'Вернуться к подбору' : 'Показать ролики до 15 минут';
+  action.textContent = showingFavorites ? 'Вернуться к подбору' : query ? 'Сбросить поиск' : 'Показать на весь вечер';
   action.addEventListener('click', () => {
-    if (!showingFavorites) setChoice('length', '15');
+    if (searchInput) searchInput.value = '';
+    if (!showingFavorites && !query) setChoice('length', 'evening');
     resetResults();
     byId('result-title').focus({ preventScroll:true });
   });
@@ -214,12 +210,15 @@ function render() {
   const length = chosen('length');
   const durationLabel = length === 'midnight' ? 'до курантов ' + minutesLeft() + ' мин' :
     length === 'evening' ? 'весь вечер' : 'до ' + length + ' мин';
-  byId('result-title').textContent = showingFavorites ? 'Избранное' : 'Что можно включить';
+  const audienceLabel = labels[chosen('audience')] ?? 'Все сценарии';
+  const query = searchQuery();
+  byId('result-title').textContent = showingFavorites ? 'Избранное' :
+    query ? 'Результаты поиска' : homeMode ? 'Рекомендации' : 'Что можно включить';
   byId('result-context').textContent = showingFavorites ? 'Сохранено: ' + favorites.size :
-    labels[chosen('audience')] + ' · ' + durationLabel + ' · найдено: ' + items.length;
+    query ? 'Найдено: ' + items.length : audienceLabel + ' · ' + durationLabel + ' · найдено: ' + items.length;
   byId('favorite-count').textContent = favorites.size;
   favoriteMode.setAttribute('aria-pressed', String(showingFavorites));
-  more.hidden = showingFavorites;
+  more.hidden = showingFavorites || items.length <= cardCount;
   more.disabled = items.length <= cardCount;
   board.replaceChildren();
   if (items.length === 0) {
@@ -236,7 +235,21 @@ function resetResults() {
   render();
 }
 
-filters.addEventListener('change', resetResults);
+filters.addEventListener('change', () => {
+  if (searchInput) searchInput.value = '';
+  resetResults();
+});
+byId('home-search')?.addEventListener('submit', event => {
+  event.preventDefault();
+  resetResults();
+  byId('result-title').focus({ preventScroll:true });
+  byId('picker').scrollIntoView({ block:'start' });
+});
+searchInput?.addEventListener('search', resetResults);
+byId('home-favorites')?.addEventListener('click', () => {
+  if (!showingFavorites) favoriteMode.click();
+  byId('picker').scrollIntoView({ block:'start' });
+});
 clockInput.addEventListener('input', () => {
   if (chosen('length') === 'midnight' && !showingFavorites) resetResults();
   else adjustClock();
@@ -255,6 +268,7 @@ favoriteMode.addEventListener('click', () => {
 });
 document.querySelectorAll('[data-demo-time]').forEach(button => {
   button.addEventListener('click', () => {
+    if (searchInput) searchInput.value = '';
     setChoice('length', 'midnight');
     clockInput.value = button.dataset.demoTime;
     resetResults();
@@ -262,9 +276,7 @@ document.querySelectorAll('[data-demo-time]').forEach(button => {
 });
 byId('preview-close').addEventListener('click', () => preview.close());
 preview.addEventListener('close', () => {
-  previewVideo.pause();
-  previewVideo.removeAttribute('src');
-  previewVideo.load();
+  previewFrame.removeAttribute('src');
 });
 function revealCaseNote() {
   const section = byId(location.hash.slice(1));

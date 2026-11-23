@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Концепт главной ленты для VK Видео с новогодними подборками «До курантов».">
+<meta name="theme-color" content="#edf0fa">
+<title>Главная лента · Концепт для VK Видео</title>
+<link rel="icon" href="assets/icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="style.css?v=5">
+<link rel="stylesheet" href="home.css?v=1">
+<script src="app.js?v=5" defer></script>
+</head>
+<body class="video-home" id="top">
+<a class="skip" href="#holiday">Перейти к подборкам</a>
+<header class="home-header">
+  <a class="wordmark" href="#top" aria-label="VK Видео, главная">
+    <span class="brand-icon" aria-hidden="true"><svg viewBox="0 0 22 22"><path d="M8 6.5v9l8-4.5z" fill="currentColor"/></svg></span>
+    <span>VK Видео</span>
+  </a>
+  <form class="home-search" id="home-search" role="search">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.6" cy="10.6" r="5.6" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="m15 15 5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+    <input id="home-search-input" type="search" placeholder="Найти в подборках" aria-label="Поиск видео в подборках">
+    <button type="submit">Найти</button>
+  </form>
+  <a class="home-case" href="./">Открыть кейс</a>
+</header>
+<div class="home-shell">
+  <nav class="home-nav" aria-label="Навигация по ленте">
+    <a href="#top" aria-current="page"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 10.5 12 3.5l8.5 7V20h-6v-5.5h-5V20h-6z"/></svg>Главная</a>
+    <a href="#holiday"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2v20M2 12h20M5 5l14 14M19 5 5 19"/></svg>До курантов</a>
+    <a href="#picker"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="m10 9 5 3-5 3z"/></svg>Лента видео</a>
+    <button id="home-favorites" type="button"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.6 8.6c0 4.5-8.6 9.3-8.6 9.3S3.4 13.1 3.4 8.6a4.2 4.2 0 0 1 8.6-1.3 4.2 4.2 0 0 1 8.6 1.3Z"/></svg>Избранное</button>
+  </nav>
+  <main class="home-content">
+    <div class="home-intro"><h1>Главная</h1><span>Концепт интерфейса</span></div>
+  <section class="hero" id="holiday" aria-labelledby="hero-title">
+    <div class="wrap hero-layout">
+      <div class="hero-top">
+        <div class="hero-copy">
+          <p class="hero-kicker">СПЕЦПРОЕКТ</p>
+          <h2 id="hero-title" class="home-holiday-title">До курантов<span>.</span></h2>
+        </div>
+        <div class="clock-card">
+          <span>ДО ПОЛУНОЧИ</span><strong id="hero-clock">00:25:00</strong>
+          <div class="hero-presets" aria-label="Время для демонстрации">
+            <button type="button" data-demo-time="65" aria-pressed="true">23:35</button><button type="button" data-demo-time="80" aria-pressed="false">23:50</button>
+          </div>
+        </div>
+      </div>
+      <div class="scenario-grid" id="scenario-grid" role="group" aria-label="Новогодние сценарии"></div>
+      <p class="sr-only" id="hero-status" role="status"></p>
+      <noscript><p>Для подбора видео требуется JavaScript.</p></noscript>
+    </div>
+  </section>
+  <section class="picker wrap" id="picker" aria-labelledby="picker-title">
+    <header class="section-head">
+      <h2 id="picker-title">Лента видео</h2>
+    </header>
+    <div class="picker-panel">
+      <form class="selection" id="filters">
+        <fieldset>
+          <legend>Сценарий</legend>
+          <div class="options">
+            <label><input name="audience" type="radio" value="all" checked><span>Все видео</span></label>
+            <label><input name="audience" type="radio" value="ambient"><span>Под оливье</span></label>
+            <label><input name="audience" type="radio" value="friends"><span>Сегодня не пью</span></label>
+            <label><input name="audience" type="radio" value="family"><span>Бабушка одобрит</span></label>
+            <label><input name="audience" type="radio" value="guests"><span>Пока гости едут</span></label>
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend>Время</legend>
+          <div class="options">
+            <label><input name="length" type="radio" value="midnight"><span>До курантов</span></label>
+            <label><input name="length" type="radio" value="15"><span>Пока стынет чай · 15 мин</span></label>
+            <label><input name="length" type="radio" value="30"><span>Ещё полчаса · 30 мин</span></label>
+            <label><input name="length" type="radio" value="evening" checked><span>Весь вечер</span></label>
+          </div>
+        </fieldset>
+      </form>
+      <div class="simulation">
+        <label for="demo-time"><span>Время на часах</span><output id="demo-time-label" for="demo-time">23:35</output></label>
+        <input id="demo-time" type="range" min="0" max="89" step="1" value="65" aria-describedby="demo-help">
+        <div class="range-times" aria-hidden="true"><span>22:30</span><span>23:59</span></div>
+        <p id="demo-help">Часы для режима «До курантов».</p>
+      </div>
+    </div>
+    <section class="results" aria-labelledby="result-title">
+      <header class="results-head">
+        <div><h3 id="result-title">Что можно включить</h3><p id="result-context" aria-live="polite"></p></div>
+        <div class="result-actions">
+          <button class="button line-button" type="button" id="favorite-mode" aria-pressed="false">Избранное <span id="favorite-count">0</span></button>
+          <button class="button line-button" type="button" id="more">Показать ещё</button>
+        </div>
+      </header>
+      <div class="result-grid" id="results"></div>
+      <p class="demo-note">Ролики из VK Видео.</p>
+    </section>
+  </section>
+  </main>
+</div>
+<footer class="home-footer"><a href="./">Кейс «До курантов»</a></footer>
+<dialog id="preview" class="preview" aria-labelledby="preview-title">
+  <div class="preview-head"><div><p class="kicker">VK ВИДЕО</p><h2 id="preview-title"></h2></div><button type="button" class="preview-close" id="preview-close" aria-label="Закрыть плеер"><span aria-hidden="true">×</span></button></div>
+  <iframe id="preview-frame" title="Плеер VK Видео" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+  <div class="preview-meta"><p id="preview-description"></p><a id="video-original" class="button line-button" target="_blank" rel="noopener noreferrer">Открыть в VK Видео</a></div>
+</dialog>
+<template id="scenario-card">
+  <article class="scenario-card">
+    <h2><button class="scenario-select" type="button" aria-pressed="false"><span></span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button></h2>
+    <button class="scenario-video" type="button">
+      <span class="scenario-cover"><img width="480" height="290" alt=""><span class="video-play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m9 5 11 7-11 7z" fill="currentColor"/></svg></span><span class="duration"></span></span>
+      <span class="scenario-video-title"></span>
+    </button>
+  </article>
+</template>
+<template id="video-card">
+  <article class="video-card">
+    <div class="video-media">
+      <button type="button" class="video-open"><img alt="" width="440" height="310"><span class="video-play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m9 5 11 7-11 7z" fill="currentColor"/></svg></span><span class="duration"></span></button>
+      <button type="button" class="favorite" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.6 8.6c0 4.5-8.6 9.3-8.6 9.3S3.4 13.1 3.4 8.6a4.2 4.2 0 0 1 8.6-1.3 4.2 4.2 0 0 1 8.6 1.3Z"/></svg></button>
+    </div>
+    <div class="video-text"><p class="video-genre"></p><h4 class="video-title"></h4></div>
+  </article>
+</template>
+</body>
+</html>
+
