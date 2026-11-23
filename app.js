@@ -1,5 +1,5 @@
 const catalogue = [
-  { id:'snow-tram', audience:'family', title:'Трамвай на Северную', genre:'Семейная анимация · 6+', minutes:18, image:'street', description:'Маленькое путешествие по городу, где перед Новым годом трамваи меняют маршрут.' },
+  { id:'snow-tram', audience:'family', title:'Трамвай на Северную', genre:'Семейная анимация · 6+', minutes:18, image:'family-tram', description:'Маленькое путешествие по городу, где перед Новым годом трамваи меняют маршрут.' },
   { id:'paper-stars', audience:'family', title:'Бумажные звёзды', genre:'Короткометражка · 0+', minutes:14, image:'window', description:'Бабушка и внучка собирают украшения к празднику из старых бумажных открыток.' },
   { id:'forest-letter', audience:'family', title:'Письмо из зимнего леса', genre:'Сказка · 6+', minutes:9, image:'cabin', description:'В канун праздника смотритель леса получает самое необычное письмо.' },
   { id:'winter-post', audience:'family', title:'Снежная почта', genre:'Анимация · 0+', minutes:7, image:'street', description:'История о письме, которое успевает к полуночи благодаря маленьким помощникам.' },
@@ -7,13 +7,15 @@ const catalogue = [
   { id:'old-town', audience:'family', title:'Праздник в старом городе', genre:'Семейная комедия · 6+', minutes:27, image:'street', description:'Соседи устраивают праздник, когда главная городская ёлка исчезает.' },
   { id:'extra-minute', audience:'family', title:'Один огонёк', genre:'Анимация · 0+', minutes:1, image:'cabin', description:'Минутная зарисовка о том, как зимний пейзаж оживает от света в окне.' },
   { id:'station', audience:'family', title:'Билет на зимнюю станцию', genre:'Семейное кино · 6+', minutes:78, image:'street', description:'Большая зимняя история о неожиданной поездке и новых друзьях.' },
+  { id:'tangerine-case', audience:'friends', title:'Мандариновый детектив', genre:'Комедия · 12+', minutes:16, image:'tangerine', description:'Компания берётся расследовать исчезновение мандаринов с праздничного стола.' },
   { id:'holiday-trivia', audience:'friends', title:'Зимний блиц', genre:'Новогоднее шоу · 12+', minutes:17, image:'cabin', description:'Две команды отвечают на вопросы о зимних фильмах и праздничных привычках.' },
   { id:'delivery', audience:'friends', title:'Заказ на полночь', genre:'Короткая комедия · 12+', minutes:12, image:'street', description:'Перед самым праздником курьер пытается доставить коробку загадочному адресату.' },
   { id:'bad-toasts', audience:'friends', title:'Мандариновый стендап', genre:'Импровизация · 12+', minutes:8, image:'window', description:'Комики придумывают новогодние шутки по подсказкам зрителей.' },
   { id:'guess', audience:'friends', title:'Угадай зимний фильм', genre:'Викторина · 6+', minutes:5, image:'cabin', description:'Пять быстрых раундов по зимним киноисториям.' },
   { id:'night', audience:'friends', title:'Всё как в кино', genre:'Вечернее шоу · 12+', minutes:24, image:'street', description:'Гости студии обсуждают неожиданные традиции из новогоднего кино.' },
-  { id:'montage', audience:'friends', title:'Кто съел все мандарины?', genre:'Мини-комедия · 12+', minutes:1, image:'window', description:'Короткое расследование главного исчезновения вечера.' },
+  { id:'montage', audience:'friends', title:'Кто съел все мандарины?', genre:'Мини-комедия · 12+', minutes:1, image:'tangerine', description:'Короткое расследование главного исчезновения вечера.' },
   { id:'comedy-trip', audience:'friends', title:'Компания в сборе', genre:'Комедия · 12+', minutes:63, image:'cabin', description:'Друзья договариваются о встрече, и всё идёт не по расписанию.' },
+  { id:'slow-olivier', audience:'ambient', title:'Оливье без спешки', genre:'Кулинарная зарисовка · 0+', minutes:19, image:'olivier', description:'Зимняя кухня, мерный стук ножа и праздничный салат.' },
   { id:'snow-window', audience:'ambient', title:'Окно в декабрь', genre:'Зимние виды · 0+', minutes:20, image:'cabin', description:'Тихие зимние виды с мягким светом из окон лесного дома.' },
   { id:'amber-light', audience:'ambient', title:'Свет на кухне', genre:'Вечерние зарисовки · 0+', minutes:13, image:'window', description:'Рассеянный свет, горячий чай и спокойный ритм зимнего вечера.' },
   { id:'midnight-street', audience:'ambient', title:'Улицы под снегом', genre:'Прогулка · 0+', minutes:10, image:'street', description:'Ночная прогулка по небольшому городу без диалогов.' },
@@ -21,9 +23,12 @@ const catalogue = [
   { id:'pinewood', audience:'ambient', title:'Тишина в ельнике', genre:'Природа · 0+', minutes:29, image:'cabin', description:'Снег и редкие огни вдалеке. Можно включить фоном за столом.' },
   { id:'falling-snow', audience:'ambient', title:'Первая снежинка', genre:'Миниатюра · 0+', minutes:1, image:'street', description:'Короткая зимняя зарисовка на последнюю минуту перед полуночью.' },
   { id:'winter-room', audience:'ambient', title:'Длинный зимний вечер', genre:'Фоновое видео · 0+', minutes:90, image:'window', description:'Долгий спокойный фон для разговоров или приготовления ужина.' },
+  { id:'guests-on-the-way', audience:'guests', title:'Они уже выехали', genre:'Короткая комедия · 6+', minutes:12, image:'guests', description:'Два друга несут подарки через заснеженный город и спорят, кто обещал прийти первым.' },
+  { id:'before-doorbell', audience:'guests', title:'Пять минут до звонка', genre:'Праздничная миниатюра · 0+', minutes:5, image:'window', description:'Хозяева заканчивают последние приготовления, пока в коридоре уже слышны шаги.' },
+  { id:'guests-by-the-door', audience:'guests', title:'Гости на пороге', genre:'Праздничная миниатюра · 0+', minutes:1, image:'guests', description:'Одна минута, два подарка и звонок в дверь.' },
 ];
 
-const labels = { family:'Бабушка одобрит', friends:'Сегодня не пью', ambient:'Под оливье' };
+const labels = { ambient:'Под оливье', friends:'Сегодня не пью', family:'Бабушка одобрит', guests:'Пока гости едут' };
 const cardCount = 3;
 const firstMinute = 22 * 60 + 30;
 const minuteAtMidnight = 24 * 60;
@@ -39,7 +44,7 @@ const previewVideo = byId('preview-video');
 const favorites = loadFavorites();
 let showingFavorites = false;
 let offset = 0;
-let featuredItem;
+const scenarioCards = Object.entries(labels).map(([audience, label]) => createScenarioCard(audience, label));
 
 function loadFavorites() {
   try {
@@ -75,23 +80,49 @@ function adjustClock() {
   updateShowcase();
 }
 
-function updateShowcase() {
-  const audience = chosen('audience');
-  const remaining = minutesLeft();
-  featuredItem = catalogue.find(item => item.audience === audience && item.minutes <= remaining);
-  const featured = byId('hero-preview');
-  featured.hidden = !featuredItem;
-  if (featuredItem) {
-    byId('hero-result-title').textContent = featuredItem.title;
-    byId('hero-result-label').textContent = featuredItem.minutes + ' мин';
-    byId('hero-poster').src = './assets/' + featuredItem.image + '.webp';
-    featured.setAttribute('aria-label', 'Смотреть превью: ' + featuredItem.title);
-  }
-  byId('hero-status').textContent = 'До полуночи ' + remaining + ' мин. ' +
-    (featuredItem ? featuredItem.title : 'Нет подходящего ролика.');
-  document.querySelectorAll('[data-hero-audience]').forEach(button => {
-    button.setAttribute('aria-pressed', String(button.dataset.heroAudience === audience));
+function createScenarioCard(audience, label) {
+  const card = byId('scenario-card').content.cloneNode(true);
+  const select = card.querySelector('.scenario-select');
+  const video = card.querySelector('.scenario-video');
+  const title = card.querySelector('.scenario-video-title');
+  const duration = card.querySelector('.duration');
+  const cover = card.querySelector('img');
+  let featured;
+
+  select.querySelector('span').textContent = label;
+  select.addEventListener('click', () => {
+    setChoice('audience', audience);
+    setChoice('length', 'midnight');
+    resetResults();
+    byId('picker-title').focus({ preventScroll:true });
+    byId('picker').scrollIntoView({ block:'start' });
   });
+  video.addEventListener('click', () => {
+    if (featured) showPreview(featured);
+  });
+  byId('scenario-grid').append(card);
+  return {
+    update(selected, remaining) {
+      select.setAttribute('aria-pressed', String(audience === selected));
+      featured = catalogue.find(item => item.audience === audience && item.minutes <= remaining);
+      video.disabled = !featured;
+      title.textContent = featured?.title ?? 'Нет подходящего видео';
+      duration.textContent = featured ? featured.minutes + ' мин' : '';
+      if (featured) {
+        video.setAttribute('aria-label', 'Смотреть превью: ' + featured.title);
+        cover.src = './assets/' + featured.image + '.webp';
+      } else {
+        video.removeAttribute('aria-label');
+        cover.removeAttribute('src');
+      }
+    },
+  };
+}
+
+function updateShowcase() {
+  const remaining = minutesLeft();
+  scenarioCards.forEach(card => card.update(chosen('audience'), remaining));
+  byId('hero-status').textContent = 'До полуночи ' + remaining + ' мин. Подборки обновлены.';
   document.querySelectorAll('[data-demo-time]').forEach(button => {
     button.setAttribute('aria-pressed', String(button.dataset.demoTime === clockInput.value));
   });
@@ -222,21 +253,12 @@ favoriteMode.addEventListener('click', () => {
   showingFavorites = !showingFavorites;
   render();
 });
-document.querySelectorAll('[data-hero-audience]').forEach(button => {
-  button.addEventListener('click', () => {
-    setChoice('audience', button.dataset.heroAudience);
-    resetResults();
-  });
-});
 document.querySelectorAll('[data-demo-time]').forEach(button => {
   button.addEventListener('click', () => {
     setChoice('length', 'midnight');
     clockInput.value = button.dataset.demoTime;
     resetResults();
   });
-});
-byId('hero-preview').addEventListener('click', () => {
-  if (featuredItem) showPreview(featuredItem);
 });
 byId('preview-close').addEventListener('click', () => preview.close());
 preview.addEventListener('close', () => {
@@ -252,5 +274,6 @@ function revealCaseNote() {
 window.addEventListener('hashchange', revealCaseNote);
 revealCaseNote();
 byId('result-title').tabIndex = -1;
+byId('picker-title').tabIndex = -1;
 render();
 

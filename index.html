@@ -3,12 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="До курантов — новогодний прототип для VK Видео. Подберите просмотр по компании и оставшемуся до полуночи времени.">
+<meta name="description" content="До курантов — новогодние видеоподборки для VK Видео. Выберите сценарий и то, что успеете посмотреть.">
 <meta name="theme-color" content="#0c1024">
 <title>До курантов · Новогодний концепт для VK Видео</title>
 <link rel="icon" href="assets/icon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="style.css?v=3">
-<script src="app.js?v=3" defer></script>
+<link rel="stylesheet" href="style.css?v=4">
+<script src="app.js?v=4" defer></script>
 </head>
 <body id="top">
 <a class="skip" href="#picker">Перейти к подбору</a>
@@ -24,31 +24,21 @@
 <main>
   <section class="hero" aria-labelledby="hero-title">
     <div class="wrap hero-layout">
-      <div class="hero-copy">
-        <p class="hero-kicker">НОВОГОДНИЙ КОНЦЕПТ</p>
-        <h1 id="hero-title">До курантов<span>.</span></h1>
-        <p class="hero-subtitle">Что включить в новогоднюю ночь?</p>
-        <p class="hero-description">Выберите настроение и время. Видео подберутся сами.</p>
-        <div class="hero-actions"><a class="button dark-button" href="#picker"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 5 12 7-12 7z" fill="currentColor"/></svg>Открыть подборку</a></div>
-      </div>
-      <div class="showcase">
-        <div class="showcase-top"><span class="showcase-brand"><span class="brand-icon" aria-hidden="true"><svg viewBox="0 0 22 22"><path d="M8 6.5v9l8-4.5z" fill="currentColor"/></svg></span>VK Видео</span><span>31 декабря · демо</span></div>
-        <div class="clock-card"><span>ДО ПОЛУНОЧИ</span><strong id="hero-clock">00:22:00</strong>
+      <div class="hero-top">
+        <div class="hero-copy">
+          <p class="hero-kicker">НОВОГОДНИЕ ВИДЕОПОДБОРКИ</p>
+          <h1 id="hero-title">До курантов<span>.</span></h1>
+        </div>
+        <div class="clock-card">
+          <span>ДО ПОЛУНОЧИ</span><strong id="hero-clock">00:22:00</strong>
           <div class="hero-presets" aria-label="Время для демонстрации">
             <button type="button" data-demo-time="68" aria-pressed="true">23:38</button><button type="button" data-demo-time="89" aria-pressed="false">23:59</button>
           </div>
         </div>
-        <div class="showcase-content">
-          <p>Что у вас за вечер?</p>
-          <div class="showcase-moods" aria-label="Сценарий просмотра">
-            <button type="button" data-hero-audience="ambient" aria-pressed="true">Под оливье</button><button type="button" data-hero-audience="friends" aria-pressed="false">Сегодня не пью</button><button type="button" data-hero-audience="family" aria-pressed="false">Бабушка одобрит</button>
-          </div>
-          <button type="button" class="showcase-result" id="hero-preview" aria-label="Смотреть превью: Окно в декабрь">
-            <img id="hero-poster" src="assets/cabin.webp" alt=""><span><small id="hero-result-label">20 мин</small><strong id="hero-result-title">Окно в декабрь</strong></span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 5 12 7-12 7z" fill="currentColor"/></svg>
-          </button>
-          <p class="sr-only" id="hero-status" role="status"></p>
-        </div>
       </div>
+      <div class="scenario-grid" id="scenario-grid" role="group" aria-label="Новогодние сценарии"></div>
+      <p class="sr-only" id="hero-status" role="status"></p>
+      <noscript><p>Для подбора видео требуется JavaScript.</p></noscript>
     </div>
   </section>
   <section class="picker wrap" id="picker" aria-labelledby="picker-title">
@@ -63,6 +53,7 @@
             <label><input name="audience" type="radio" value="ambient" checked><span>Под оливье</span></label>
             <label><input name="audience" type="radio" value="friends"><span>Сегодня не пью</span></label>
             <label><input name="audience" type="radio" value="family"><span>Бабушка одобрит</span></label>
+            <label><input name="audience" type="radio" value="guests"><span>Пока гости едут</span></label>
           </div>
         </fieldset>
         <fieldset>
@@ -70,7 +61,7 @@
           <div class="options">
             <label><input name="length" type="radio" value="midnight" checked><span>До курантов</span></label>
             <label><input name="length" type="radio" value="15"><span>Пока стынет чай · 15 мин</span></label>
-            <label><input name="length" type="radio" value="30"><span>Пока гости едут · 30 мин</span></label>
+            <label><input name="length" type="radio" value="30"><span>Ещё полчаса · 30 мин</span></label>
             <label><input name="length" type="radio" value="evening"><span>Весь вечер</span></label>
           </div>
         </fieldset>
@@ -121,6 +112,15 @@
   <video id="preview-video" controls playsinline preload="none" muted aria-label="Демонстрационный видеоролик"></video>
   <p id="preview-description"></p>
 </dialog>
+<template id="scenario-card">
+  <article class="scenario-card">
+    <h2><button class="scenario-select" type="button" aria-pressed="false"><span></span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button></h2>
+    <button class="scenario-video" type="button">
+      <span class="scenario-cover"><img width="480" height="290" alt=""><span class="video-play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m9 5 11 7-11 7z" fill="currentColor"/></svg></span><span class="duration"></span></span>
+      <span class="scenario-video-title"></span>
+    </button>
+  </article>
+</template>
 <template id="video-card">
   <article class="video-card">
     <div class="video-media">
