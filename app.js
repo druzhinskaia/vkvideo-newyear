@@ -9,10 +9,10 @@ const catalogue = [
   { id:'station', audience:'family', title:'Билет на зимнюю станцию', genre:'Семейное кино · 6+', minutes:78, image:'street', description:'Большая зимняя история о неожиданной поездке и новых друзьях.' },
   { id:'holiday-trivia', audience:'friends', title:'Зимний блиц', genre:'Новогоднее шоу · 12+', minutes:17, image:'cabin', description:'Две команды отвечают на вопросы о зимних фильмах и праздничных привычках.' },
   { id:'delivery', audience:'friends', title:'Заказ на полночь', genre:'Короткая комедия · 12+', minutes:12, image:'street', description:'Перед самым праздником курьер пытается доставить коробку загадочному адресату.' },
-  { id:'bad-toasts', audience:'friends', title:'Тост без репетиции', genre:'Импровизация · 12+', minutes:8, image:'window', description:'Комики придумывают новогодние тосты по подсказкам зрителей.' },
+  { id:'bad-toasts', audience:'friends', title:'Мандариновый стендап', genre:'Импровизация · 12+', minutes:8, image:'window', description:'Комики придумывают новогодние шутки по подсказкам зрителей.' },
   { id:'guess', audience:'friends', title:'Угадай зимний фильм', genre:'Викторина · 6+', minutes:5, image:'cabin', description:'Пять быстрых раундов по зимним киноисториям.' },
   { id:'night', audience:'friends', title:'Всё как в кино', genre:'Вечернее шоу · 12+', minutes:24, image:'street', description:'Гости студии обсуждают неожиданные традиции из новогоднего кино.' },
-  { id:'montage', audience:'friends', title:'Пять секунд до тоста', genre:'Мини-комедия · 12+', minutes:1, image:'window', description:'Короткая сценка о последней попытке вспомнить тост.' },
+  { id:'montage', audience:'friends', title:'Кто съел все мандарины?', genre:'Мини-комедия · 12+', minutes:1, image:'window', description:'Короткое расследование главного исчезновения вечера.' },
   { id:'comedy-trip', audience:'friends', title:'Компания в сборе', genre:'Комедия · 12+', minutes:63, image:'cabin', description:'Друзья договариваются о встрече, и всё идёт не по расписанию.' },
   { id:'snow-window', audience:'ambient', title:'Окно в декабрь', genre:'Зимние виды · 0+', minutes:20, image:'cabin', description:'Тихие зимние виды с мягким светом из окон лесного дома.' },
   { id:'amber-light', audience:'ambient', title:'Свет на кухне', genre:'Вечерние зарисовки · 0+', minutes:13, image:'window', description:'Рассеянный свет, горячий чай и спокойный ритм зимнего вечера.' },
@@ -23,7 +23,7 @@ const catalogue = [
   { id:'winter-room', audience:'ambient', title:'Длинный зимний вечер', genre:'Фоновое видео · 0+', minutes:90, image:'window', description:'Долгий спокойный фон для разговоров или приготовления ужина.' },
 ];
 
-const labels = { family:'Всей семьёй', friends:'С друзьями', ambient:'Фоном' };
+const labels = { family:'Бабушка одобрит', friends:'Сегодня не пью', ambient:'Под оливье' };
 const cardCount = 3;
 const firstMinute = 22 * 60 + 30;
 const minuteAtMidnight = 24 * 60;
@@ -83,7 +83,7 @@ function updateShowcase() {
   featured.hidden = !featuredItem;
   if (featuredItem) {
     byId('hero-result-title').textContent = featuredItem.title;
-    byId('hero-result-label').textContent = 'Подойдёт по времени · ' + featuredItem.minutes + ' мин';
+    byId('hero-result-label').textContent = featuredItem.minutes + ' мин';
     byId('hero-poster').src = './assets/' + featuredItem.image + '.webp';
     featured.setAttribute('aria-label', 'Смотреть превью: ' + featuredItem.title);
   }
@@ -148,7 +148,6 @@ function renderCard(item) {
   card.querySelector('.duration').textContent = item.minutes + ' мин';
   card.querySelector('.video-genre').textContent = item.genre;
   card.querySelector('.video-title').textContent = item.title;
-  card.querySelector('.video-reason').textContent = item.description;
   const open = card.querySelector('.video-open');
   open.setAttribute('aria-label', 'Смотреть превью: ' + item.title);
   open.addEventListener('click', () => showPreview(item));
@@ -183,7 +182,7 @@ function render() {
   const items = calculateResults();
   const length = chosen('length');
   const durationLabel = length === 'midnight' ? 'до курантов ' + minutesLeft() + ' мин' :
-    length === 'evening' ? 'целый вечер' : 'до ' + length + ' мин';
+    length === 'evening' ? 'весь вечер' : 'до ' + length + ' мин';
   byId('result-title').textContent = showingFavorites ? 'Избранное' : 'Что можно включить';
   byId('result-context').textContent = showingFavorites ? 'Сохранено: ' + favorites.size :
     labels[chosen('audience')] + ' · ' + durationLabel + ' · найдено: ' + items.length;
@@ -245,5 +244,13 @@ preview.addEventListener('close', () => {
   previewVideo.removeAttribute('src');
   previewVideo.load();
 });
+function revealCaseNote() {
+  const section = byId(location.hash.slice(1));
+  if (section?.matches('.case-notes details')) section.open = true;
+}
+
+window.addEventListener('hashchange', revealCaseNote);
+revealCaseNote();
 byId('result-title').tabIndex = -1;
 render();
+
