@@ -1,9 +1,9 @@
 const catalogue = [
-  { id:'olivier-19', audience:'ambient', title:'Оливье XIX века. Самый первый рецепт', author:'Шеф-повар Василий Емельяненко', genre:'Рецепт', seconds:1337, image:'olivier', owner:'-129435925', video:'456240690' },
-  { id:'mandarins-forward', audience:'friends', title:'Новый год не с родителями', author:'Уральские Пельмени', genre:'Юмор', seconds:454, image:'tangerine', owner:'-19232159', video:'456250223', hash:'224145a615a339a711' },
-  { id:'santa-summer', audience:'family', title:'Дед Мороз и лето', author:'Союзмультфильм', genre:'Мультфильм', seconds:1166, image:'family-tram', owner:'23893368', video:'456239832', hash:'8ca5a611a1cbff84' },
-  { id:'new-year-fireworks', audience:'guests', title:'Новогодний салют', author:'Уральские Пельмени', genre:'Юмор', seconds:323, image:'guests', owner:'178203904', video:'456242170', hash:'d5bae5d4cb060e57' },
-  { id:'winter-fairytale', audience:'family', title:'Новогодняя сказка', author:'Союзмультфильм', genre:'Мультфильм', seconds:985, image:'cabin', owner:'-65205704', video:'456239376', hash:'ad5348ddab94fc27' },
+  { id:'olivier-19', audience:'ambient', title:'Оливье XIX века. Самый первый рецепт', author:'Шеф-повар Василий Емельяненко', genre:'Рецепт', seconds:1337, image:'frame-olivier', owner:'-129435925', video:'456240690' },
+  { id:'mandarins-forward', audience:'friends', title:'Новый год не с родителями', author:'Уральские Пельмени', genre:'Юмор', seconds:454, image:'frame-parents', owner:'-19232159', video:'456250223', hash:'224145a615a339a711' },
+  { id:'santa-summer', audience:'family', title:'Дед Мороз и лето', author:'Союзмультфильм', genre:'Мультфильм', seconds:1166, image:'frame-ded-moroz', owner:'23893368', video:'456239832', hash:'8ca5a611a1cbff84' },
+  { id:'new-year-fireworks', audience:'guests', title:'Новогодний салют', author:'Уральские Пельмени', genre:'Юмор', seconds:323, image:'frame-salute', owner:'178203904', video:'456242170', hash:'d5bae5d4cb060e57' },
+  { id:'winter-fairytale', audience:'family', title:'Новогодняя сказка', author:'Союзмультфильм', genre:'Мультфильм', seconds:985, image:'frame-fairytale', owner:'-65205704', video:'456239376', hash:'ad5348ddab94fc27' },
 ];
 
 const labels = { ambient:'Под оливье', friends:'Сегодня не пью', family:'Бабушка одобрит', guests:'Пока гости едут' };

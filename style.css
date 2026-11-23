@@ -69,7 +69,7 @@ h1 span{color:var(--gold)}
 .scenario-select svg{width:17px;height:17px}
 .scenario-video{display:block;width:100%;text-align:left;padding:0;border:0;background:none}
 .scenario-cover{display:block;position:relative;background:#252942}
-.scenario-cover img{width:100%;aspect-ratio:1.55;transition:filter .2s,scale .2s}
+.scenario-cover img{width:100%;aspect-ratio:16/9;transition:filter .2s,scale .2s}
 .scenario-video:hover img{filter:brightness(.85)}
 .scenario-video .video-play{background:#12152cbf;border-color:var(--accent)}
 .scenario-video:hover .video-play{background:#252b4b}
@@ -164,7 +164,6 @@ summary{width:fit-content;cursor:pointer;font-weight:700}
   .scenario-card{border-radius:11px}
   .scenario-select{min-height:42px;padding:6px 7px 6px 8px;font-size:.94rem}
   .scenario-select svg{width:14px;height:14px}
-  .scenario-cover img{aspect-ratio:1.62}
   .scenario-video-title{padding:8px;font-size:.84rem}
   .scenario-video .video-play{width:36px;height:36px}
   .picker,.case-notes{padding-block:27px}
