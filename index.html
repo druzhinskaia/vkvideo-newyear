@@ -8,7 +8,7 @@
 <title>Главная лента · Концепт для VK Видео</title>
 <link rel="icon" href="assets/icon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="style.css?v=6">
-<link rel="stylesheet" href="home.css?v=1">
+<link rel="stylesheet" href="home.css?v=2">
 <script src="app.js?v=7" defer></script>
 </head>
 <body class="video-home" id="top">
@@ -23,7 +23,10 @@
     <input id="home-search-input" type="search" placeholder="Найти в подборках" aria-label="Поиск видео в подборках">
     <button type="submit">Найти</button>
   </form>
-  <a class="home-case" href="case.html">Открыть кейс</a>
+  <a class="home-case" href="case.html">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="5" width="16" height="14" rx="3"/><path d="M8 10h8M8 14h5"/></svg>
+    Открыть кейс
+  </a>
 </header>
 <div class="home-shell">
   <nav class="home-nav" aria-label="Навигация по ленте">
@@ -52,6 +55,13 @@
       <p class="sr-only" id="hero-status" role="status"></p>
       <noscript><p>Для подбора видео требуется JavaScript.</p></noscript>
     </div>
+  </section>
+  <section class="home-summary" aria-labelledby="home-summary-title">
+    <div>
+      <h2 id="home-summary-title">Идея «До курантов»</h2>
+      <p>Добавляем в главную ленту VK Видео новогоднюю подборку по ситуации и времени до полуночи. Зрителю проще решить, что включить прямо сейчас. Проверим, вырастет ли доля зрителей, которые запустили ролик за минуту и посмотрели хотя бы 30 секунд.</p>
+    </div>
+    <a href="case.html#experiment">Как проверим гипотезу</a>
   </section>
   <section class="picker wrap" id="picker" aria-labelledby="picker-title">
     <header class="section-head">

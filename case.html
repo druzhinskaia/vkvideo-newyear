@@ -3,133 +3,124 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="До курантов — новогодние видеоподборки для VK Видео. Выберите сценарий и то, что успеете посмотреть.">
-<meta name="theme-color" content="#0c1024">
-<title>До курантов · Новогодний концепт для VK Видео</title>
+<meta name="description" content="Продуктовый кейс «До курантов» для VK Видео. Что подсказали отзывы, как устроен прототип и как проверить эффект в A/B-тесте.">
+<meta name="theme-color" content="#11142b">
+<title>До курантов · Продуктовый кейс для VK Видео</title>
 <link rel="icon" href="assets/icon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="style.css?v=6">
-<script src="app.js?v=7" defer></script>
+<link rel="stylesheet" href="case.css?v=1">
 </head>
-<body id="top">
-<a class="skip" href="#picker">Перейти к подбору</a>
-<header class="header wrap">
-  <a href="#top" class="wordmark" aria-label="До курантов, начало страницы">
+<body class="case-page" id="top">
+<a class="skip" href="#case-title">Перейти к кейсу</a>
+<header class="case-wrap case-header">
+  <a class="wordmark" href="./" aria-label="VK Видео, вернуться в ленту прототипа">
     <span class="brand-icon" aria-hidden="true"><svg viewBox="0 0 22 22"><path d="M8 6.5v9l8-4.5z" fill="currentColor"/></svg></span>
-    <span>VK Видео</span><span class="brand-slash">/</span><span class="brand-meta">Концепт</span>
+    <span>VK Видео</span>
   </a>
-  <nav class="header-links" aria-label="Разделы сайта">
-    <a href="./">Главная лента</a><a href="#research">Исследование</a><a href="#experiment">A/B-тест</a>
+  <nav aria-label="Разделы кейса">
+    <a href="#research">Исследование</a>
+    <a href="#experiment">A/B-тест</a>
   </nav>
 </header>
-<main>
-  <section class="hero" aria-labelledby="hero-title">
-    <div class="wrap hero-layout">
-      <div class="hero-top">
-        <div class="hero-copy">
-          <p class="hero-kicker">НОВОГОДНИЕ ВИДЕОПОДБОРКИ</p>
-          <h1 id="hero-title">До курантов<span>.</span></h1>
-        </div>
-        <div class="clock-card">
-          <span>ДО ПОЛУНОЧИ</span><strong id="hero-clock">00:25:00</strong>
-          <div class="hero-presets" aria-label="Время для демонстрации">
-            <button type="button" data-demo-time="65" aria-pressed="true">23:35</button><button type="button" data-demo-time="80" aria-pressed="false">23:50</button>
-          </div>
-        </div>
-      </div>
-      <div class="scenario-grid" id="scenario-grid" role="group" aria-label="Новогодние сценарии"></div>
-      <p class="sr-only" id="hero-status" role="status"></p>
-      <noscript><p>Для подбора видео требуется JavaScript.</p></noscript>
-    </div>
+<main class="case-wrap">
+  <section class="case-hero" aria-labelledby="case-title">
+    <p class="case-eyebrow">Продуктовый кейс</p>
+    <h1 id="case-title">До курантов<span>.</span></h1>
+    <p class="case-lead">Новогодняя подборка в главной ленте VK Видео. Выбираешь, для какого момента нужно видео, и видишь, что успеешь посмотреть до полуночи.</p>
+    <a class="case-button" href="./#holiday">Попробовать прототип</a>
   </section>
-  <section class="picker wrap" id="picker" aria-labelledby="picker-title">
-    <header class="section-head">
-      <h2 id="picker-title">Подборка на вечер</h2>
-    </header>
-    <div class="picker-panel">
-      <form class="selection" id="filters">
-        <fieldset>
-          <legend>Сценарий</legend>
-          <div class="options">
-            <label><input name="audience" type="radio" value="ambient" checked><span>Под оливье</span></label>
-            <label><input name="audience" type="radio" value="friends"><span>Сегодня не пью</span></label>
-            <label><input name="audience" type="radio" value="family"><span>Бабушка одобрит</span></label>
-            <label><input name="audience" type="radio" value="guests"><span>Пока гости едут</span></label>
-          </div>
-        </fieldset>
-        <fieldset>
-          <legend>Время</legend>
-          <div class="options">
-            <label><input name="length" type="radio" value="midnight" checked><span>До курантов</span></label>
-            <label><input name="length" type="radio" value="15"><span>Пока стынет чай · 15 мин</span></label>
-            <label><input name="length" type="radio" value="30"><span>Ещё полчаса · 30 мин</span></label>
-            <label><input name="length" type="radio" value="evening"><span>Весь вечер</span></label>
-          </div>
-        </fieldset>
-      </form>
-      <div class="simulation">
-        <label for="demo-time"><span>Время на часах</span><output id="demo-time-label" for="demo-time">23:35</output></label>
-        <input id="demo-time" type="range" min="0" max="89" step="1" value="65" aria-describedby="demo-help">
-        <div class="range-times" aria-hidden="true"><span>22:30</span><span>23:59</span></div>
-        <p id="demo-help">Часы для режима «До курантов».</p>
+
+  <section class="case-section" id="research" aria-labelledby="research-title">
+    <h2 id="research-title">Что показали отзывы</h2>
+    <p class="case-intro">Я сопоставила отзывы в RuStore и на Vraki с интервью Online47. В этих примерах зрители описывали, как поиск выдавал нерелевантные видео, а лента снова предлагала похожие шоу.</p>
+    <div class="case-evidence">
+      <article>
+        <p class="case-source">RuStore · ноябрь 2026</p>
+        <h3>Подборка промахивается мимо интересов</h3>
+        <p>Александр описал, как в ленте появлялись шоу, которые он никогда не смотрел.</p>
+        <p><strong>Решение.</strong> Зритель сам задаёт контекст для спецподборки, например «Под оливье» для видео во время готовки.</p>
+        <a href="https://www.rustore.ru/catalog/app/com.vk.vkvideo/reviews" target="_blank" rel="noopener noreferrer">Лента отзывов RuStore</a>
+        <small>Ищите отзыв Александра от 21 ноября. Порядок отзывов в ленте меняется.</small>
+      </article>
+      <article>
+        <p class="case-source">Online47 · май 2026</p>
+        <h3>Одни форматы повторяются</h3>
+        <p>В интервью Александра Лебедева рассказала, что ей часто попадались однотипные шоу с одними и теми же участниками.</p>
+        <p><strong>Решение.</strong> Уже на первом экране показываем несколько ситуаций с примерами из разных форматов, включая рецепт, мультфильм и скетч.</p>
+        <a href="https://online47.ru/2026/05/21/bylo-neudobno-stalo-privychno-kak-vk-video-i-rutube-peretyanuli-milliony-rossiyan-s-youtube-236308" target="_blank" rel="noopener noreferrer">Интервью на Online47</a>
+      </article>
+      <article>
+        <p class="case-source">Vraki · март 2026</p>
+        <h3>Поиск не попадает в запрос</h3>
+        <p>Автор отзыва хотел фильтровать выдачу по интересам и жаловался, что поиск показывает совсем другие видео.</p>
+        <p><strong>Решение.</strong> Предлагаем начать с готовой ситуации, например «Бабушка одобрит», и сразу показать подходящий ролик.</p>
+        <a href="https://vraki.net/otzyvy/mobilnye-prilozheniya/vk-video-kino-multiki-i-shou/dobryy-den-prilozhenie-kak-bylo-ne-prigodnym-takim-i-ostal.html" target="_blank" rel="noopener noreferrer">Открыть отзыв на Vraki</a>
+      </article>
+    </div>
+    <p class="case-note">Отзывы дали направление для прототипа. Пользу новогодних сценариев и фильтра по времени предстоит проверить отдельно.</p>
+  </section>
+
+  <section class="case-section" id="solution" aria-labelledby="solution-title">
+    <h2 id="solution-title">Что меняем в ленте</h2>
+    <div class="case-solution">
+      <div>
+        <h3>Ситуации на первом экране</h3>
+        <p>«Под оливье», «Сегодня не пью», «Бабушка одобрит» и «Пока гости едут». Под каждым сценарием видны ролик, кадр из него и длительность. Можно запустить видео или раскрыть подборку по сценарию.</p>
+      </div>
+      <div>
+        <h3>Подбор по времени до полуночи</h3>
+        <p>В 23:35 в подборке помещается 22-минутный рецепт, а в 23:50 доступен, например, пятиминутный скетч. В прототипе можно переключить время и увидеть, как меняются доступные видео.</p>
       </div>
     </div>
-    <section class="results" aria-labelledby="result-title">
-      <header class="results-head">
-        <div><h3 id="result-title">Что можно включить</h3><p id="result-context" aria-live="polite"></p></div>
-        <div class="result-actions">
-          <button class="button line-button" type="button" id="favorite-mode" aria-pressed="false">Избранное <span id="favorite-count">0</span></button>
-          <button class="button line-button" type="button" id="more">Показать ещё</button>
-        </div>
-      </header>
-      <div class="result-grid" id="results"></div>
-      <p class="demo-note">Ролики из VK Видео.</p>
-    </section>
   </section>
-  <section class="case-notes" aria-labelledby="case-notes-title">
-    <div class="wrap">
-      <h2 id="case-notes-title">О концепте</h2>
-      <p>Когда до полуночи считаные минуты, хочется сразу найти видео под планы на вечер.</p>
-      <details class="research-extra" id="research">
-        <summary>Исследование</summary>
-        <p>В отзывах зрители жалуются на однотипные рекомендации и нерелевантный поиск. Отсюда идея: дать зрителю выбрать сценарий и время.</p>
-        <ul class="source-links">
-          <li><a href="https://www.rustore.ru/catalog/app/com.vk.vkvideo/reviews" target="_blank" rel="noopener noreferrer">Отзывы в RuStore</a></li>
-          <li><a href="https://online47.ru/2026/05/21/bylo-neudobno-stalo-privychno-kak-vk-video-i-rutube-peretyanuli-milliony-rossiyan-s-youtube-236308" target="_blank" rel="noopener noreferrer">Интервью Online47</a></li>
-          <li><a href="https://vraki.net/otzyvy/mobilnye-prilozheniya/vk-video-kino-multiki-i-shou/dobryy-den-prilozhenie-kak-bylo-ne-prigodnym-takim-i-ostal.html" target="_blank" rel="noopener noreferrer">Отзыв о поиске</a></li>
+
+  <section class="case-section" id="experiment" aria-labelledby="experiment-title">
+    <h2 id="experiment-title">План A/B-теста</h2>
+    <p class="case-intro">Если дать зрителю выбор по ситуации и времени, больше посетителей спецподборки быстро запустят подходящий ролик и продолжат его смотреть.</p>
+    <div class="case-variants">
+      <article><span class="variant-label">A · контроль</span><h3>Обычная подборка</h3><p>Единый список новогодних роликов с длительностью на карточках.</p></article>
+      <article><span class="variant-label">B · эксперимент</span><h3>Ситуации и время</h3><p>Тот же каталог с фильтрами по сценарию и длительности и подбором по времени до полуночи.</p></article>
+    </div>
+    <p class="case-note">Распределяем зрителей при первом открытии блока случайно 50/50 и закрепляем вариант за пользователем. Период показа, место блока в ленте, набор роликов и обложки одинаковы в обеих группах.</p>
+
+    <div class="case-metric">
+      <p class="case-eyebrow">Главная метрика</p>
+      <h3>Доля зрителей, которые начали смотреть за минуту</h3>
+      <p>Из уникальных зрителей, открывших блок, считаем долю тех, кто запустил ролик в первые 60 секунд и посмотрел этот же ролик хотя бы 30 секунд в течение первых 5 минут. Считаем один раз на зрителя по первому открытию. Время рекламы исключаем.</p>
+    </div>
+    <div class="case-measurement">
+      <div>
+        <h3>Что ещё измеряем</h3>
+        <dl class="case-metrics-list">
+          <div><dt>Доля выходов без просмотра</dt><dd>Открыли блок и не запустили ни одного ролика в первые 5 минут.</dd></div>
+          <div><dt>Время до запуска</dt><dd>Сравниваем медиану среди тех, кто запустил видео в первые 5 минут.</dd></div>
+          <div><dt>Пустые подборки</dt><dd>В варианте B проверяем, как часто после выбора фильтра нет подходящих видео.</dd></div>
+          <div><dt>Ошибки запуска</dt><dd>Контрольная метрика. Сравниваем долю ошибок среди попыток запуска в A и B.</dd></div>
+        </dl>
+      </div>
+      <div>
+        <h3>Как соберём данные</h3>
+        <ul class="case-events">
+          <li><code>special_open</code> · открыли блок</li>
+          <li><code>filter_change</code> · выбрали фильтр, записали количество результатов</li>
+          <li><code>play_request</code> · попытались запустить ролик</li>
+          <li><code>play_start</code> · ролик начал играть</li>
+          <li><code>watch_30s</code> · посмотрели 30 секунд ролика</li>
+          <li><code>play_error</code> · при запуске возникла ошибка</li>
         </ul>
-      </details>
-      <details class="research-extra" id="experiment">
-        <summary>A/B-тест</summary>
-        <p>Один каталог, один баннер. Группа A видит обычную подборку, группа B выбирает сценарий и время.</p>
-        <p><strong>Главная метрика</strong> — доля зрителей, которые запустили ролик в течение минуты и посмотрели хотя бы 30 секунд. Дополнительно проверяем долю выходов без просмотра.</p>
-      </details>
+        <p class="case-note">Связываем события по зрителю, первому открытию и ролику. По варианту A или B строим отчёт.</p>
+      </div>
+    </div>
+    <div class="case-decision">
+      <h3>Как примем решение</h3>
+      <p>До запуска оценим базовую конверсию, согласуем минимально полезный эффект и допустимое изменение частоты ошибок. По ним рассчитаем выборку (уровень значимости 5%, мощность 80%) и зафиксируем окно теста. Рекомендуем расширить показ, если рост главной метрики достигнет согласованного порога, будет статистически значимым, а ошибки останутся в допустимых границах. Если эффект окажется неясным, разберём по событиям, на каком шаге зрители чаще уходят.</p>
+      <p><strong>Статус.</strong> A/B-тест запланирован. Фактического замера эффекта пока нет.</p>
     </div>
   </section>
 </main>
-<footer class="footer"><div class="wrap"><p>До курантов <span>·</span> Концепт для VK Видео</p><a href="#top">К началу</a></div></footer>
-<dialog id="preview" class="preview" aria-labelledby="preview-title">
-  <div class="preview-head"><div><p class="kicker">VK ВИДЕО</p><h2 id="preview-title"></h2></div><button type="button" class="preview-close" id="preview-close" aria-label="Закрыть плеер"><span aria-hidden="true">×</span></button></div>
-  <iframe id="preview-frame" title="Плеер VK Видео" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-  <div class="preview-meta"><p id="preview-description"></p><a id="video-original" class="button line-button" target="_blank" rel="noopener noreferrer">Открыть в VK Видео</a></div>
-</dialog>
-<template id="scenario-card">
-  <article class="scenario-card">
-    <h2><button class="scenario-select" type="button" aria-pressed="false"><span></span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button></h2>
-    <button class="scenario-video" type="button">
-      <span class="scenario-cover"><img width="480" height="290" alt=""><span class="video-play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m9 5 11 7-11 7z" fill="currentColor"/></svg></span><span class="duration"></span></span>
-      <span class="scenario-video-title"></span>
-    </button>
-  </article>
-</template>
-<template id="video-card">
-  <article class="video-card">
-    <div class="video-media">
-      <button type="button" class="video-open"><img alt="" width="440" height="310"><span class="video-play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m9 5 11 7-11 7z" fill="currentColor"/></svg></span><span class="duration"></span></button>
-      <button type="button" class="favorite" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.6 8.6c0 4.5-8.6 9.3-8.6 9.3S3.4 13.1 3.4 8.6a4.2 4.2 0 0 1 8.6-1.3 4.2 4.2 0 0 1 8.6 1.3Z"/></svg></button>
-    </div>
-    <div class="video-text"><p class="video-genre"></p><h4 class="video-title"></h4></div>
-  </article>
-</template>
+<footer class="case-wrap case-footer">
+  <span>До курантов · Концепт для VK Видео</span>
+  <a href="./">Вернуться в ленту</a>
+</footer>
 </body>
 </html>
-

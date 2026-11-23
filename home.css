@@ -8,8 +8,16 @@
 .home-search svg{width:20px;height:20px;color:#596791}
 .home-search input{border:0;background:none;color:var(--ink);min-width:0;flex:1;padding-block:5px}
 .home-search input:focus-visible{outline-offset:0}
-.home-search button,.home-case{display:inline-flex;align-items:center;justify-content:center;min-height:36px;background:#e8ebfb;color:#3e437e;border:1px solid #d9def7;border-radius:8px;padding:4px 9px;text-decoration:none;font-size:.88rem;font-weight:750;white-space:nowrap}
-.home-search button:hover,.home-case:hover{background:#d9defb}
+.home-search button{display:inline-flex;align-items:center;justify-content:center;min-height:36px;background:#e8ebfb;color:#3e437e;border:1px solid #d9def7;border-radius:8px;padding:4px 9px;text-decoration:none;font-size:.88rem;font-weight:750;white-space:nowrap}
+.home-search button:hover{background:#d9defb}
+.home-case{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:8px 15px;color:#fff;background:#4338ad;border-radius:10px;box-shadow:0 3px 9px #4338ad38;text-decoration:none;font-size:.94rem;font-weight:750;white-space:nowrap}
+.home-case:hover{background:#342984}
+.home-case svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round}
+.home-summary{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:14px 30px;margin-top:16px;background:#f8f8ff;border:1px solid #d6dcf1;border-inline-start:4px solid #6857d2;border-radius:12px;padding:16px 20px}
+.home-summary h2{font-size:1.1rem;line-height:1.25;margin-bottom:5px}
+.home-summary p{max-width:71ch;color:var(--muted);line-height:1.48}
+.home-summary a{color:#4338ad;font-size:.92rem;font-weight:740}
+.home-summary a:hover{color:#242077}
 .home-shell{width:min(100% - 56px,1480px);margin-inline:auto;display:grid;grid-template-columns:190px minmax(0,1fr);gap:22px}
 .home-nav{position:sticky;top:10px;align-self:start;display:grid;gap:6px;margin-top:21px;padding:10px;background:#e4e9f8;border:1px solid #d6def4;border-radius:15px}
 .home-nav a,.home-nav button{border:0;border-radius:9px;display:flex;align-items:center;gap:9px;padding:9px 7px;background:none;color:#364367;font-size:.9rem;font-weight:680;text-decoration:none;text-align:left}
@@ -51,4 +59,8 @@
   .video-home .hero-layout{padding:12px}
   .video-home .scenario-select{font-size:.83rem}
   .video-home .scenario-video-title{font-size:.81rem}
+}
+
+@media(max-width:610px){
+  .home-summary{grid-template-columns:1fr;gap:8px;padding:14px}
 }
