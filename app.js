@@ -21,8 +21,11 @@ const favoriteMode = byId('favorite-mode');
 const preview = byId('preview');
 const previewFrame = byId('preview-frame');
 const searchInput = byId('home-search-input');
+const searchToggle = byId('home-search-toggle');
+const genreButtons = [...document.querySelectorAll('[data-feed-genre]')];
 const favorites = loadFavorites();
 let showingFavorites = false;
+let feedGenre = '';
 let offset = 0;
 const scenarioCards = Object.entries(labels).map(([audience, label]) => createScenarioCard(audience, label));
 
@@ -77,11 +80,11 @@ function createScenarioCard(audience, label) {
   select.querySelector('span').textContent = label;
   select.addEventListener('click', () => {
     if (searchInput) searchInput.value = '';
+    feedGenre = '';
     setChoice('audience', audience);
     setChoice('length', 'midnight');
     resetResults();
-    byId('picker-title').focus({ preventScroll:true });
-    byId('picker').scrollIntoView({ block:'start' });
+    goToResults();
   });
   video.addEventListener('click', () => {
     if (featured) showPreview(featured);
@@ -128,7 +131,8 @@ function calculateResults() {
   const length = chosen('length');
   const audience = chosen('audience');
   const limit = length === 'midnight' ? minutesLeft() * 60 : length === 'evening' ? Infinity : Number(length) * 60;
-  return catalogue.filter(item => (audience === 'all' || item.audience === audience) && item.seconds <= limit);
+  return catalogue.filter(item => (audience === 'all' || item.audience === audience) &&
+    (!feedGenre || item.genre === feedGenre) && item.seconds <= limit);
 }
 
 function showPreview(item) {
@@ -212,10 +216,15 @@ function render() {
     length === 'evening' ? 'весь вечер' : 'до ' + length + ' мин';
   const audienceLabel = labels[chosen('audience')] ?? 'Все сценарии';
   const query = searchQuery();
+  const genreTitle = genreButtons.find(button => feedGenre && button.dataset.feedGenre === feedGenre)?.textContent;
+  genreButtons.forEach(button => {
+    const active = !showingFavorites && !query && button.dataset.feedGenre === feedGenre;
+    button.setAttribute('aria-pressed', String(active));
+  });
   byId('result-title').textContent = showingFavorites ? 'Избранное' :
-    query ? 'Результаты поиска' : homeMode ? 'Рекомендации' : 'Что можно включить';
+    query ? 'Результаты поиска' : genreTitle ?? (homeMode ? 'Лента видео' : 'Что можно включить');
   byId('result-context').textContent = showingFavorites ? 'Сохранено: ' + favorites.size :
-    query ? 'Найдено: ' + items.length : audienceLabel + ' · ' + durationLabel + ' · найдено: ' + items.length;
+    query || genreTitle ? 'Найдено: ' + items.length : audienceLabel + ' · ' + durationLabel + ' · найдено: ' + items.length;
   byId('favorite-count').textContent = favorites.size;
   favoriteMode.setAttribute('aria-pressed', String(showingFavorites));
   more.hidden = showingFavorites || items.length <= cardCount;
@@ -235,20 +244,54 @@ function resetResults() {
   render();
 }
 
+function goToResults() {
+  byId('result-title').focus({ preventScroll:true });
+  byId('picker').scrollIntoView({ block:'start' });
+}
+
+function showMobileSearch(expanded) {
+  searchToggle.setAttribute('aria-expanded', String(expanded));
+  searchToggle.setAttribute('aria-label', expanded ? 'Закрыть поиск' : 'Открыть поиск');
+  document.body.classList.toggle('search-expanded', expanded);
+}
+
+genreButtons.forEach(button => {
+  button.addEventListener('click', () => {
+    feedGenre = button.dataset.feedGenre;
+    if (searchInput) searchInput.value = '';
+    setChoice('audience', 'all');
+    setChoice('length', 'evening');
+    resetResults();
+    if (feedGenre) goToResults();
+  });
+});
+searchToggle?.addEventListener('click', () => {
+  const expanded = searchToggle.getAttribute('aria-expanded') === 'true';
+  showMobileSearch(!expanded);
+  if (!expanded) searchInput.focus();
+});
+searchInput?.addEventListener('keydown', event => {
+  if (event.key === 'Escape' && searchToggle?.getAttribute('aria-expanded') === 'true') {
+    showMobileSearch(false);
+    searchToggle.focus();
+  }
+});
 filters.addEventListener('change', () => {
   if (searchInput) searchInput.value = '';
+  feedGenre = '';
   resetResults();
 });
 byId('home-search')?.addEventListener('submit', event => {
   event.preventDefault();
+  feedGenre = '';
+  if (searchToggle) showMobileSearch(false);
   resetResults();
-  byId('result-title').focus({ preventScroll:true });
-  byId('picker').scrollIntoView({ block:'start' });
+  goToResults();
 });
 searchInput?.addEventListener('search', resetResults);
 byId('home-favorites')?.addEventListener('click', () => {
   if (!showingFavorites) favoriteMode.click();
-  byId('picker').scrollIntoView({ block:'start' });
+  goToResults();
 });
 clockInput.addEventListener('input', () => {
   if (chosen('length') === 'midnight' && !showingFavorites) resetResults();
@@ -269,6 +312,7 @@ favoriteMode.addEventListener('click', () => {
 document.querySelectorAll('[data-demo-time]').forEach(button => {
   button.addEventListener('click', () => {
     if (searchInput) searchInput.value = '';
+    feedGenre = '';
     setChoice('length', 'midnight');
     clockInput.value = button.dataset.demoTime;
     resetResults();
@@ -291,6 +335,5 @@ function revealCaseNote() {
 window.addEventListener('hashchange', revealCaseNote);
 revealCaseNote();
 byId('result-title').tabIndex = -1;
-byId('picker-title').tabIndex = -1;
 render();
 
