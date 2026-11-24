@@ -180,6 +180,54 @@
 
 .case-metric h3 + p { margin-top: 7px; }
 
+.metric-details {
+  margin-top: 15px;
+  border: 1px solid #8a7295;
+  border-radius: 10px;
+  background: #1f1d39;
+}
+
+.metric-details summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  min-height: 44px;
+  padding: 10px 13px;
+  border-radius: 9px;
+  color: #f0d7ff;
+  font-weight: 700;
+  cursor: pointer;
+  list-style: none;
+}
+
+.metric-details summary::-webkit-details-marker { display: none; }
+
+.metric-details summary::after {
+  content: "";
+  flex: none;
+  width: 9px;
+  height: 9px;
+  margin: 0 4px 4px 0;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: rotate(45deg);
+}
+
+.metric-details[open] summary::after {
+  margin-block: 4px 0;
+  transform: rotate(225deg);
+}
+
+.metric-details summary:hover { background: #322648; }
+
+.metric-explanation {
+  padding: 12px 13px 14px;
+  border-top: 1px solid #544765;
+}
+
+.metric-explanation p + p { margin-top: 9px; }
+
 .case-metrics-list, .case-events { margin: 12px 0 0; }
 
 .case-metrics-list > div + div, .case-events li + li { margin-top: 9px; }
